@@ -361,7 +361,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="pulse_started = False&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
-        <Param val="if sound_tone.status == STARTED and not pulse_started:&amp;#10;    if tone_is_oddball:&amp;#10;        dev.activate_line(bitmask=oddball_p300_code)&amp;#10;        eyetracker.sendMessage(oddball_p300_code)&amp;#10;    else:&amp;#10;        dev.activate_line(bitmask=regular_p300_code)&amp;#10;        eyetracker.sendMessage(regular_p300_code)&amp;#10;    pulse_started = True&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="if sound_tone.status == STARTED and not pulse_started:&amp;#10;    if tone_is_oddball:&amp;#10;        win.callOnFlip(dev.activate_line, bitmask=oddball_p300_code)&amp;#10;        win.callOnFlip(eyetracker.sendMessage, oddball_p300_code)&amp;#10;    else:&amp;#10;        win.callOnFlip(dev.activate_line, bitmask=regular_p300_code)&amp;#10;        win.callOnFlip(eyetracker.sendMessage, regular_p300_code)&amp;#10;&amp;#10;    pulse_started = True&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
