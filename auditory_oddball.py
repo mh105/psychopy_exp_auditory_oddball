@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Tue Jun 18 13:23:11 2024
+    on Wed Jun 19 09:49:00 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -2382,11 +2382,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # Run 'Each Frame' code from trigger_tone
             if sound_tone.status == STARTED and not pulse_started:
                 if tone_is_oddball:
-                    dev.activate_line(bitmask=oddball_p300_code)
-                    eyetracker.sendMessage(oddball_p300_code)
+                    win.callOnFlip(dev.activate_line, bitmask=oddball_p300_code)
+                    win.callOnFlip(eyetracker.sendMessage, oddball_p300_code)
                 else:
-                    dev.activate_line(bitmask=regular_p300_code)
-                    eyetracker.sendMessage(regular_p300_code)
+                    win.callOnFlip(dev.activate_line, bitmask=regular_p300_code)
+                    win.callOnFlip(eyetracker.sendMessage, regular_p300_code)
+            
                 pulse_started = True
             
             
