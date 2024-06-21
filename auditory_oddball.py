@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Wed Jun 19 09:49:00 2024
+    on Thu Jun 20 22:15:00 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -575,6 +575,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # N.B.: only use values 1-99 and provide clear comments on used values
     regular_p300_code = 41
     oddball_p300_code = 42
+    
     # Run 'Begin Experiment' code from task_id
     dev.activate_line(bitmask=task_start_code)  # special code for task start
     core.wait(0.5)  # wait 500ms between two consecutive triggers
@@ -591,6 +592,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # Generate a tone frequency list with 20% oddball trials
     tone_frequency_list = []
+    n_trials = 100
     for _ in range(20):  # 20 * 5 = 100 trials in total
         chunk_list = [regular_frequency]  # one chunk has 5 tones, the 1st is always regular
         temp = [regular_frequency] * 3 + [oddball_frequency]  # one oddball in the rest 4 tones
@@ -599,7 +601,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         tone_frequency_list += chunk_list  # append the chunk to the full list
     
     # Inter-trial interval (ITI) ranges from 1500ms to 2500ms
-    iti_list = list(1.5 + random(100) + 0.2)  # beginning 200ms is the tone duration
+    iti_list = list(1.5 + random(n_trials) + 0.2)  # beginning 200ms is the tone duration
     
     
     # --- Initialize components for Routine "instruct_oddball" ---
@@ -731,11 +733,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     sound_tone.setVolume(1.0)
     key_tone_resp = keyboard.Keyboard(deviceName='key_tone_resp')
     
-    # --- Initialize components for Routine "_thank_you" ---
+    # --- Initialize components for Routine "__end__" ---
     text_thank_you = visual.TextStim(win=win, name='text_thank_you',
         text='Thank you. You have completed this task!',
         font='Arial',
-        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, 0), height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
@@ -848,9 +850,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             theseKeys = key_welcome.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
             _key_welcome_allKeys.extend(theseKeys)
             if len(_key_welcome_allKeys):
-                key_welcome.keys = _key_welcome_allKeys[0].name  # just the first key pressed
-                key_welcome.rt = _key_welcome_allKeys[0].rt
-                key_welcome.duration = _key_welcome_allKeys[0].duration
+                key_welcome.keys = _key_welcome_allKeys[-1].name  # just the last key pressed
+                key_welcome.rt = _key_welcome_allKeys[-1].rt
+                key_welcome.duration = _key_welcome_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
         
@@ -889,13 +891,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     for thisComponent in _welcomeComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # check responses
-    if key_welcome.keys in ['', [], None]:  # No response was made
-        key_welcome.keys = None
-    thisExp.addData('key_welcome.keys',key_welcome.keys)
-    if key_welcome.keys != None:  # we had a response
-        thisExp.addData('key_welcome.rt', key_welcome.rt)
-        thisExp.addData('key_welcome.duration', key_welcome.duration)
     read_welcome.pause()  # ensure sound has stopped at end of Routine
     read_welcome.status = PAUSED
     thisExp.nextEntry()
@@ -974,9 +969,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             theseKeys = key_et.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
             _key_et_allKeys.extend(theseKeys)
             if len(_key_et_allKeys):
-                key_et.keys = _key_et_allKeys[0].name  # just the first key pressed
-                key_et.rt = _key_et_allKeys[0].rt
-                key_et.duration = _key_et_allKeys[0].duration
+                key_et.keys = _key_et_allKeys[-1].name  # just the last key pressed
+                key_et.rt = _key_et_allKeys[-1].rt
+                key_et.duration = _key_et_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
         
@@ -1015,13 +1010,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     for thisComponent in _et_instructComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # check responses
-    if key_et.keys in ['', [], None]:  # No response was made
-        key_et.keys = None
-    thisExp.addData('key_et.keys',key_et.keys)
-    if key_et.keys != None:  # we had a response
-        thisExp.addData('key_et.rt', key_et.rt)
-        thisExp.addData('key_et.duration', key_et.duration)
     read_et.pause()  # ensure sound has stopped at end of Routine
     read_et.status = PAUSED
     thisExp.nextEntry()
@@ -1230,6 +1218,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             etRecord.tStart = t  # local t and not account for scr refresh
             etRecord.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(etRecord, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.addData('etRecord.started', t)
             # update status
             etRecord.status = STARTED
             etRecord.start()
@@ -1320,9 +1310,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             pass
         
         # *key_instruct_oddball* updates
+        waitOnFlip = False
         
         # if key_instruct_oddball is starting this frame...
-        if key_instruct_oddball.status == NOT_STARTED and t >= 0.2-frameTolerance:
+        if key_instruct_oddball.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
             # keep track of start time/frame for later
             key_instruct_oddball.frameNStart = frameN  # exact frame index
             key_instruct_oddball.tStart = t  # local t and not account for scr refresh
@@ -1331,15 +1322,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update status
             key_instruct_oddball.status = STARTED
             # keyboard checking is just starting
-            key_instruct_oddball.clock.reset()  # now t=0
-            key_instruct_oddball.clearEvents(eventType='keyboard')
-        if key_instruct_oddball.status == STARTED:
+            waitOnFlip = True
+            win.callOnFlip(key_instruct_oddball.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(key_instruct_oddball.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if key_instruct_oddball.status == STARTED and not waitOnFlip:
             theseKeys = key_instruct_oddball.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_oddball_allKeys.extend(theseKeys)
             if len(_key_instruct_oddball_allKeys):
-                key_instruct_oddball.keys = _key_instruct_oddball_allKeys[0].name  # just the first key pressed
-                key_instruct_oddball.rt = _key_instruct_oddball_allKeys[0].rt
-                key_instruct_oddball.duration = _key_instruct_oddball_allKeys[0].duration
+                key_instruct_oddball.keys = _key_instruct_oddball_allKeys[-1].name  # just the last key pressed
+                key_instruct_oddball.rt = _key_instruct_oddball_allKeys[-1].rt
+                key_instruct_oddball.duration = _key_instruct_oddball_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
         
@@ -1368,13 +1360,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     for thisComponent in instruct_oddballComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # check responses
-    if key_instruct_oddball.keys in ['', [], None]:  # No response was made
-        key_instruct_oddball.keys = None
-    thisExp.addData('key_instruct_oddball.keys',key_instruct_oddball.keys)
-    if key_instruct_oddball.keys != None:  # we had a response
-        thisExp.addData('key_instruct_oddball.rt', key_instruct_oddball.rt)
-        thisExp.addData('key_instruct_oddball.duration', key_instruct_oddball.duration)
     thisExp.nextEntry()
     # the Routine "instruct_oddball" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1545,9 +1530,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             pass
         
         # *key_instruct_regular* updates
+        waitOnFlip = False
         
         # if key_instruct_regular is starting this frame...
-        if key_instruct_regular.status == NOT_STARTED and t >= 0.2-frameTolerance:
+        if key_instruct_regular.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
             # keep track of start time/frame for later
             key_instruct_regular.frameNStart = frameN  # exact frame index
             key_instruct_regular.tStart = t  # local t and not account for scr refresh
@@ -1556,15 +1542,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update status
             key_instruct_regular.status = STARTED
             # keyboard checking is just starting
-            key_instruct_regular.clock.reset()  # now t=0
-            key_instruct_regular.clearEvents(eventType='keyboard')
-        if key_instruct_regular.status == STARTED:
+            waitOnFlip = True
+            win.callOnFlip(key_instruct_regular.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(key_instruct_regular.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if key_instruct_regular.status == STARTED and not waitOnFlip:
             theseKeys = key_instruct_regular.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_regular_allKeys.extend(theseKeys)
             if len(_key_instruct_regular_allKeys):
-                key_instruct_regular.keys = _key_instruct_regular_allKeys[0].name  # just the first key pressed
-                key_instruct_regular.rt = _key_instruct_regular_allKeys[0].rt
-                key_instruct_regular.duration = _key_instruct_regular_allKeys[0].duration
+                key_instruct_regular.keys = _key_instruct_regular_allKeys[-1].name  # just the last key pressed
+                key_instruct_regular.rt = _key_instruct_regular_allKeys[-1].rt
+                key_instruct_regular.duration = _key_instruct_regular_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
         
@@ -1593,13 +1580,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     for thisComponent in instruct_regularComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # check responses
-    if key_instruct_regular.keys in ['', [], None]:  # No response was made
-        key_instruct_regular.keys = None
-    thisExp.addData('key_instruct_regular.keys',key_instruct_regular.keys)
-    if key_instruct_regular.keys != None:  # we had a response
-        thisExp.addData('key_instruct_regular.rt', key_instruct_regular.rt)
-        thisExp.addData('key_instruct_regular.duration', key_instruct_regular.duration)
     thisExp.nextEntry()
     # the Routine "instruct_regular" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1770,9 +1750,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             pass
         
         # *key_instruct_combined* updates
+        waitOnFlip = False
         
         # if key_instruct_combined is starting this frame...
-        if key_instruct_combined.status == NOT_STARTED and t >= 0.2-frameTolerance:
+        if key_instruct_combined.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
             # keep track of start time/frame for later
             key_instruct_combined.frameNStart = frameN  # exact frame index
             key_instruct_combined.tStart = t  # local t and not account for scr refresh
@@ -1781,15 +1762,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update status
             key_instruct_combined.status = STARTED
             # keyboard checking is just starting
-            key_instruct_combined.clock.reset()  # now t=0
-            key_instruct_combined.clearEvents(eventType='keyboard')
-        if key_instruct_combined.status == STARTED:
+            waitOnFlip = True
+            win.callOnFlip(key_instruct_combined.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(key_instruct_combined.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if key_instruct_combined.status == STARTED and not waitOnFlip:
             theseKeys = key_instruct_combined.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_combined_allKeys.extend(theseKeys)
             if len(_key_instruct_combined_allKeys):
-                key_instruct_combined.keys = _key_instruct_combined_allKeys[0].name  # just the first key pressed
-                key_instruct_combined.rt = _key_instruct_combined_allKeys[0].rt
-                key_instruct_combined.duration = _key_instruct_combined_allKeys[0].duration
+                key_instruct_combined.keys = _key_instruct_combined_allKeys[-1].name  # just the last key pressed
+                key_instruct_combined.rt = _key_instruct_combined_allKeys[-1].rt
+                key_instruct_combined.duration = _key_instruct_combined_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
         
@@ -1818,13 +1800,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     for thisComponent in instruct_combinedComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # check responses
-    if key_instruct_combined.keys in ['', [], None]:  # No response was made
-        key_instruct_combined.keys = None
-    thisExp.addData('key_instruct_combined.keys',key_instruct_combined.keys)
-    if key_instruct_combined.keys != None:  # we had a response
-        thisExp.addData('key_instruct_combined.rt', key_instruct_combined.rt)
-        thisExp.addData('key_instruct_combined.duration', key_instruct_combined.duration)
     thisExp.nextEntry()
     # the Routine "instruct_combined" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -2022,9 +1997,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             pass
         
         # *key_instruct_verify* updates
+        waitOnFlip = False
         
         # if key_instruct_verify is starting this frame...
-        if key_instruct_verify.status == NOT_STARTED and t >= 0.2-frameTolerance:
+        if key_instruct_verify.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
             # keep track of start time/frame for later
             key_instruct_verify.frameNStart = frameN  # exact frame index
             key_instruct_verify.tStart = t  # local t and not account for scr refresh
@@ -2033,15 +2009,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update status
             key_instruct_verify.status = STARTED
             # keyboard checking is just starting
-            key_instruct_verify.clock.reset()  # now t=0
-            key_instruct_verify.clearEvents(eventType='keyboard')
-        if key_instruct_verify.status == STARTED:
+            waitOnFlip = True
+            win.callOnFlip(key_instruct_verify.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(key_instruct_verify.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if key_instruct_verify.status == STARTED and not waitOnFlip:
             theseKeys = key_instruct_verify.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_verify_allKeys.extend(theseKeys)
             if len(_key_instruct_verify_allKeys):
-                key_instruct_verify.keys = _key_instruct_verify_allKeys[0].name  # just the first key pressed
-                key_instruct_verify.rt = _key_instruct_verify_allKeys[0].rt
-                key_instruct_verify.duration = _key_instruct_verify_allKeys[0].duration
+                key_instruct_verify.keys = _key_instruct_verify_allKeys[-1].name  # just the last key pressed
+                key_instruct_verify.rt = _key_instruct_verify_allKeys[-1].rt
+                key_instruct_verify.duration = _key_instruct_verify_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
         
@@ -2070,13 +2047,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     for thisComponent in instruct_verifyComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # check responses
-    if key_instruct_verify.keys in ['', [], None]:  # No response was made
-        key_instruct_verify.keys = None
-    thisExp.addData('key_instruct_verify.keys',key_instruct_verify.keys)
-    if key_instruct_verify.keys != None:  # we had a response
-        thisExp.addData('key_instruct_verify.rt', key_instruct_verify.rt)
-        thisExp.addData('key_instruct_verify.duration', key_instruct_verify.duration)
     thisExp.nextEntry()
     # the Routine "instruct_verify" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -2131,9 +2101,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             pass
         
         # *key_instruct_begin* updates
+        waitOnFlip = False
         
         # if key_instruct_begin is starting this frame...
-        if key_instruct_begin.status == NOT_STARTED and t >= 0.2-frameTolerance:
+        if key_instruct_begin.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
             # keep track of start time/frame for later
             key_instruct_begin.frameNStart = frameN  # exact frame index
             key_instruct_begin.tStart = t  # local t and not account for scr refresh
@@ -2142,15 +2113,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update status
             key_instruct_begin.status = STARTED
             # keyboard checking is just starting
-            key_instruct_begin.clock.reset()  # now t=0
-            key_instruct_begin.clearEvents(eventType='keyboard')
-        if key_instruct_begin.status == STARTED:
+            waitOnFlip = True
+            win.callOnFlip(key_instruct_begin.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(key_instruct_begin.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if key_instruct_begin.status == STARTED and not waitOnFlip:
             theseKeys = key_instruct_begin.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_begin_allKeys.extend(theseKeys)
             if len(_key_instruct_begin_allKeys):
-                key_instruct_begin.keys = _key_instruct_begin_allKeys[0].name  # just the first key pressed
-                key_instruct_begin.rt = _key_instruct_begin_allKeys[0].rt
-                key_instruct_begin.duration = _key_instruct_begin_allKeys[0].duration
+                key_instruct_begin.keys = _key_instruct_begin_allKeys[-1].name  # just the last key pressed
+                key_instruct_begin.rt = _key_instruct_begin_allKeys[-1].rt
+                key_instruct_begin.duration = _key_instruct_begin_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
         
@@ -2179,13 +2151,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     for thisComponent in instruct_beginComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # check responses
-    if key_instruct_begin.keys in ['', [], None]:  # No response was made
-        key_instruct_begin.keys = None
-    thisExp.addData('key_instruct_begin.keys',key_instruct_begin.keys)
-    if key_instruct_begin.keys != None:  # we had a response
-        thisExp.addData('key_instruct_begin.rt', key_instruct_begin.rt)
-        thisExp.addData('key_instruct_begin.duration', key_instruct_begin.duration)
     thisExp.nextEntry()
     # the Routine "instruct_begin" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -2280,7 +2245,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     thisExp.nextEntry()
     
     # set up handler to look after randomisation of conditions etc
-    trials = data.TrialHandler(nReps=100.0, method='sequential', 
+    trials = data.TrialHandler(nReps=n_trials, method='sequential', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='trials')
@@ -2473,7 +2438,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
-    # completed 100.0 repeats of 'trials'
+    # completed n_trials repeats of 'trials'
     
     # get names of stimulus parameters
     if trials.trialList in ([], [None], None):
@@ -2485,15 +2450,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         stimOut=params,
         dataOut=['n','all_mean','all_std', 'all_raw'])
     
-    # --- Prepare to start Routine "_thank_you" ---
+    # --- Prepare to start Routine "__end__" ---
     continueRoutine = True
     # update component parameters for each repeat
     read_thank_you.setSound('resource/thank_you.wav', secs=2.7, hamming=True)
     read_thank_you.setVolume(1.0, log=False)
     read_thank_you.seek(0)
     # keep track of which components have finished
-    _thank_youComponents = [text_thank_you, read_thank_you]
-    for thisComponent in _thank_youComponents:
+    __end__Components = [text_thank_you, read_thank_you]
+    for thisComponent in __end__Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -2505,7 +2470,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
     
-    # --- Run Routine "_thank_you" ---
+    # --- Run Routine "__end__" ---
     routineForceEnded = not continueRoutine
     while continueRoutine and routineTimer.getTime() < 3.0:
         # get current time
@@ -2579,7 +2544,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             routineForceEnded = True
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in _thank_youComponents:
+        for thisComponent in __end__Components:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -2588,8 +2553,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # --- Ending Routine "_thank_you" ---
-    for thisComponent in _thank_youComponents:
+    # --- Ending Routine "__end__" ---
+    for thisComponent in __end__Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     read_thank_you.pause()  # ensure sound has stopped at end of Routine
