@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Thu Jun 20 22:15:00 2024
+    on Thu Jun 20 22:33:29 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -633,7 +633,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_regular" ---
     text_instruct_regular = visual.TextStim(win=win, name='text_instruct_regular',
-        text="Every time you hear the following tone, don't press the spacebar.\n\nYou do not need to make any response.\n\n\nPress the spacebar to hear the tone",
+        text="INSTRUCTIONS:\n\nEvery time you hear the following tone, don't press the spacebar.\n\nYou do not need to make any response.\n\n\nPress the spacebar to hear the tone",
         font='Arial',
         units='norm', pos=(0, 0), height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -1294,7 +1294,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *text_instruct_oddball* updates
         
         # if text_instruct_oddball is starting this frame...
-        if text_instruct_oddball.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        if text_instruct_oddball.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
             text_instruct_oddball.frameNStart = frameN  # exact frame index
             text_instruct_oddball.tStart = t  # local t and not account for scr refresh
@@ -1397,7 +1397,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *text_fixation_oddball* updates
         
         # if text_fixation_oddball is starting this frame...
-        if text_fixation_oddball.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        if text_fixation_oddball.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
             text_fixation_oddball.frameNStart = frameN  # exact frame index
             text_fixation_oddball.tStart = t  # local t and not account for scr refresh
@@ -1514,7 +1514,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *text_instruct_regular* updates
         
         # if text_instruct_regular is starting this frame...
-        if text_instruct_regular.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        if text_instruct_regular.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
             text_instruct_regular.frameNStart = frameN  # exact frame index
             text_instruct_regular.tStart = t  # local t and not account for scr refresh
@@ -1617,7 +1617,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *text_fixation_regular* updates
         
         # if text_fixation_regular is starting this frame...
-        if text_fixation_regular.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        if text_fixation_regular.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
             text_fixation_regular.frameNStart = frameN  # exact frame index
             text_fixation_regular.tStart = t  # local t and not account for scr refresh
@@ -1734,7 +1734,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *text_instruct_combined* updates
         
         # if text_instruct_combined is starting this frame...
-        if text_instruct_combined.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        if text_instruct_combined.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
             text_instruct_combined.frameNStart = frameN  # exact frame index
             text_instruct_combined.tStart = t  # local t and not account for scr refresh
@@ -1840,7 +1840,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *text_fixation_combined* updates
         
         # if text_fixation_combined is starting this frame...
-        if text_fixation_combined.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        if text_fixation_combined.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
             text_fixation_combined.frameNStart = frameN  # exact frame index
             text_fixation_combined.tStart = t  # local t and not account for scr refresh
@@ -1981,7 +1981,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *text_instruct_verify* updates
         
         # if text_instruct_verify is starting this frame...
-        if text_instruct_verify.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        if text_instruct_verify.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
             text_instruct_verify.frameNStart = frameN  # exact frame index
             text_instruct_verify.tStart = t  # local t and not account for scr refresh
@@ -2085,7 +2085,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *text_instruct_begin* updates
         
         # if text_instruct_begin is starting this frame...
-        if text_instruct_begin.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        if text_instruct_begin.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
             text_instruct_begin.frameNStart = frameN  # exact frame index
             text_instruct_begin.tStart = t  # local t and not account for scr refresh
@@ -2158,6 +2158,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Prepare to start Routine "close_eyes" ---
     continueRoutine = True
     # update component parameters for each repeat
+    # Run 'Begin Routine' code from trigger_trial_block
+    # Beginning of main experiment trial block
+    dev.activate_line(bitmask=block_start_code)
+    eyetracker.sendMessage(block_start_code)
+    
     # keep track of which components have finished
     close_eyesComponents = [text_close_eyes]
     for thisComponent in close_eyesComponents:
@@ -2185,7 +2190,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *text_close_eyes* updates
         
         # if text_close_eyes is starting this frame...
-        if text_close_eyes.status == NOT_STARTED and t >= 0.0-frameTolerance:
+        if text_close_eyes.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
             text_close_eyes.frameNStart = frameN  # exact frame index
             text_close_eyes.tStart = t  # local t and not account for scr refresh
@@ -2456,6 +2461,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     read_thank_you.setSound('resource/thank_you.wav', secs=2.7, hamming=True)
     read_thank_you.setVolume(1.0, log=False)
     read_thank_you.seek(0)
+    # Run 'Begin Routine' code from trigger_trial_block_end
+    # End of main experiment trial block
+    dev.activate_line(bitmask=block_end_code)
+    eyetracker.sendMessage(block_end_code)
+    
     # keep track of which components have finished
     __end__Components = [text_thank_you, read_thank_you]
     for thisComponent in __end__Components:
