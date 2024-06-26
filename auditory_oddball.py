@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Fri Jun 21 08:11:53 2024
+    on Tue Jun 25 20:00:23 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -95,7 +95,7 @@ or run the experiment with `--pilot` as an argument. To change what pilot
 PILOTING = core.setPilotModeFromArgs()
 # start off with values from experiment settings
 _fullScr = True
-_winSize = [1728, 1117]
+_winSize = [2560, 1440]
 _loggingLevel = logging.getLevel('warning')
 # if in pilot mode, apply overrides according to preferences
 if PILOTING:
@@ -1149,7 +1149,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Run Routine "__start__" ---
     routineForceEnded = not continueRoutine
-    while continueRoutine:
+    while continueRoutine and routineTimer.getTime() < 2.0:
         # get current time
         t = routineTimer.getTime()
         tThisFlip = win.getFutureFlipTime(clock=routineTimer)
@@ -1188,14 +1188,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 text_start.setAutoDraw(False)
         
         # if read_start is starting this frame...
-        if read_start.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
+        if read_start.status == NOT_STARTED and t >= 0.2-frameTolerance:
             # keep track of start time/frame for later
             read_start.frameNStart = frameN  # exact frame index
             read_start.tStart = t  # local t and not account for scr refresh
             read_start.tStartRefresh = tThisFlipGlobal  # on global time
             # update status
             read_start.status = STARTED
-            read_start.play(when=win)  # sync with win flip
+            read_start.play()  # start the sound (it finishes automatically)
         
         # if read_start is stopping this frame...
         if read_start.status == STARTED:
@@ -1256,9 +1256,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             thisComponent.setAutoDraw(False)
     read_start.pause()  # ensure sound has stopped at end of Routine
     read_start.status = PAUSED
+    # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
+    if routineForceEnded:
+        routineTimer.reset()
+    else:
+        routineTimer.addTime(-2.000000)
     thisExp.nextEntry()
-    # the Routine "__start__" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
     
     # --- Prepare to start Routine "instruct_oddball" ---
     continueRoutine = True
@@ -1425,14 +1428,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 text_fixation_oddball.setAutoDraw(False)
         
         # if sound_oddball is starting this frame...
-        if sound_oddball.status == NOT_STARTED and tThisFlip >= 0.5-frameTolerance:
+        if sound_oddball.status == NOT_STARTED and t >= 0.5-frameTolerance:
             # keep track of start time/frame for later
             sound_oddball.frameNStart = frameN  # exact frame index
             sound_oddball.tStart = t  # local t and not account for scr refresh
             sound_oddball.tStartRefresh = tThisFlipGlobal  # on global time
             # update status
             sound_oddball.status = STARTED
-            sound_oddball.play(when=win)  # sync with win flip
+            sound_oddball.play()  # start the sound (it finishes automatically)
         
         # if sound_oddball is stopping this frame...
         if sound_oddball.status == STARTED:
@@ -1471,8 +1474,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     for thisComponent in tone_oddballComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    sound_oddball.pause()  # ensure sound has stopped at end of Routine
-    sound_oddball.status = PAUSED
     # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
     if routineForceEnded:
         routineTimer.reset()
@@ -1645,14 +1646,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 text_fixation_regular.setAutoDraw(False)
         
         # if sound_regular is starting this frame...
-        if sound_regular.status == NOT_STARTED and tThisFlip >= 0.5-frameTolerance:
+        if sound_regular.status == NOT_STARTED and t >= 0.5-frameTolerance:
             # keep track of start time/frame for later
             sound_regular.frameNStart = frameN  # exact frame index
             sound_regular.tStart = t  # local t and not account for scr refresh
             sound_regular.tStartRefresh = tThisFlipGlobal  # on global time
             # update status
             sound_regular.status = STARTED
-            sound_regular.play(when=win)  # sync with win flip
+            sound_regular.play()  # start the sound (it finishes automatically)
         
         # if sound_regular is stopping this frame...
         if sound_regular.status == STARTED:
@@ -1691,8 +1692,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     for thisComponent in tone_regularComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    sound_regular.pause()  # ensure sound has stopped at end of Routine
-    sound_regular.status = PAUSED
     # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
     if routineForceEnded:
         routineTimer.reset()
@@ -1868,14 +1867,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 text_fixation_combined.setAutoDraw(False)
         
         # if sound_oddball_combined is starting this frame...
-        if sound_oddball_combined.status == NOT_STARTED and tThisFlip >= 0.5-frameTolerance:
+        if sound_oddball_combined.status == NOT_STARTED and t >= 0.5-frameTolerance:
             # keep track of start time/frame for later
             sound_oddball_combined.frameNStart = frameN  # exact frame index
             sound_oddball_combined.tStart = t  # local t and not account for scr refresh
             sound_oddball_combined.tStartRefresh = tThisFlipGlobal  # on global time
             # update status
             sound_oddball_combined.status = STARTED
-            sound_oddball_combined.play(when=win)  # sync with win flip
+            sound_oddball_combined.play()  # start the sound (it finishes automatically)
         
         # if sound_oddball_combined is stopping this frame...
         if sound_oddball_combined.status == STARTED:
@@ -1890,14 +1889,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 sound_oddball_combined._EOS()
         
         # if sound_regular_combined is starting this frame...
-        if sound_regular_combined.status == NOT_STARTED and tThisFlip >= 1.7-frameTolerance:
+        if sound_regular_combined.status == NOT_STARTED and t >= 1.7-frameTolerance:
             # keep track of start time/frame for later
             sound_regular_combined.frameNStart = frameN  # exact frame index
             sound_regular_combined.tStart = t  # local t and not account for scr refresh
             sound_regular_combined.tStartRefresh = tThisFlipGlobal  # on global time
             # update status
             sound_regular_combined.status = STARTED
-            sound_regular_combined.play(when=win)  # sync with win flip
+            sound_regular_combined.play()  # start the sound (it finishes automatically)
         
         # if sound_regular_combined is stopping this frame...
         if sound_regular_combined.status == STARTED:
@@ -1936,10 +1935,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     for thisComponent in tone_combinedComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    sound_oddball_combined.pause()  # ensure sound has stopped at end of Routine
-    sound_oddball_combined.status = PAUSED
-    sound_regular_combined.pause()  # ensure sound has stopped at end of Routine
-    sound_regular_combined.status = PAUSED
     # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
     if routineForceEnded:
         routineTimer.reset()
@@ -2325,16 +2320,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update/draw components on each frame
             
             # if sound_tone is starting this frame...
-            if sound_tone.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+            if sound_tone.status == NOT_STARTED and t >= 0-frameTolerance:
                 # keep track of start time/frame for later
                 sound_tone.frameNStart = frameN  # exact frame index
                 sound_tone.tStart = t  # local t and not account for scr refresh
                 sound_tone.tStartRefresh = tThisFlipGlobal  # on global time
                 # add timestamp to datafile
-                thisExp.addData('sound_tone.started', tThisFlipGlobal)
+                thisExp.addData('sound_tone.started', t)
                 # update status
                 sound_tone.status = STARTED
-                sound_tone.play(when=win)  # sync with win flip
+                sound_tone.play()  # start the sound (it finishes automatically)
             
             # if sound_tone is stopping this frame...
             if sound_tone.status == STARTED:
@@ -2345,7 +2340,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     sound_tone.tStopRefresh = tThisFlipGlobal  # on global time
                     sound_tone.frameNStop = frameN  # exact frame index
                     # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'sound_tone.stopped')
+                    thisExp.addData('sound_tone.stopped', t)
                     # update status
                     sound_tone.status = FINISHED
                     sound_tone._EOS()
@@ -2427,8 +2422,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         thisExp.addData('trial.stopped', globalClock.getTime(format='float'))
-        sound_tone.pause()  # ensure sound has stopped at end of Routine
-        sound_tone.status = PAUSED
         # check responses
         if key_tone_resp.keys in ['', [], None]:  # No response was made
             key_tone_resp.keys = None
@@ -2521,14 +2514,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 text_thank_you.setAutoDraw(False)
         
         # if read_thank_you is starting this frame...
-        if read_thank_you.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
+        if read_thank_you.status == NOT_STARTED and t >= 0.2-frameTolerance:
             # keep track of start time/frame for later
             read_thank_you.frameNStart = frameN  # exact frame index
             read_thank_you.tStart = t  # local t and not account for scr refresh
             read_thank_you.tStartRefresh = tThisFlipGlobal  # on global time
             # update status
             read_thank_you.status = STARTED
-            read_thank_you.play(when=win)  # sync with win flip
+            read_thank_you.play()  # start the sound (it finishes automatically)
         
         # if read_thank_you is stopping this frame...
         if read_thank_you.status == STARTED:
