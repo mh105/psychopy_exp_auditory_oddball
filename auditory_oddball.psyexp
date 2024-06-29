@@ -892,7 +892,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Beginning of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;eyetracker.sendMessage(block_start_code)&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Beginning of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;eyetracker.sendMessage(block_start_code)&amp;#10;# no need to wait 500ms because this routine lasts 2.0s&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -1181,7 +1181,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# End of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;eyetracker.sendMessage(block_end_code)&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# End of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;eyetracker.sendMessage(block_end_code)&amp;#10;core.wait(0.5)  # wait 500ms before end of experiment triggers&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
