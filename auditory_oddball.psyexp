@@ -26,7 +26,7 @@
     <Param val="False" valType="bool" updates="None" name="Show mouse"/>
     <Param val="height" valType="str" updates="None" name="Units"/>
     <Param val="" valType="str" updates="None" name="Use version"/>
-    <Param val="[2560, 1440]" valType="list" updates="None" name="Window size (pixels)"/>
+    <Param val="[1728, 1117]" valType="list" updates="None" name="Window size (pixels)"/>
     <Param val="none" valType="str" updates="None" name="backgroundFit"/>
     <Param val="" valType="str" updates="None" name="backgroundImg"/>
     <Param val="avg" valType="str" updates="None" name="blendMode"/>
@@ -892,7 +892,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Beginning of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;eyetracker.sendMessage(block_start_code)&amp;#10;# no need to wait 500ms because this routine lasts 2.0s&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Beginning of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_start_code)&amp;#10;eyetracker.sendMessage(block_start_code)&amp;#10;# no need to wait 500ms because this routine lasts 2.0s before trial triggers&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -1181,7 +1181,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# End of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;eyetracker.sendMessage(block_end_code)&amp;#10;# no need to wait 500ms as this routine lasts 3.0s&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# End of main experiment trial block&amp;#10;dev.activate_line(bitmask=block_end_code)&amp;#10;eyetracker.sendMessage(block_end_code)&amp;#10;# no need to wait 500ms as this routine lasts 3.0s before experiment ends&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>

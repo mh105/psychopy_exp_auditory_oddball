@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Tue Jun 25 20:00:28 2024
+    on Sun Jun 30 07:56:49 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -95,7 +95,7 @@ or run the experiment with `--pilot` as an argument. To change what pilot
 PILOTING = core.setPilotModeFromArgs()
 # start off with values from experiment settings
 _fullScr = True
-_winSize = [2560, 1440]
+_winSize = [1728, 1117]
 _loggingLevel = logging.getLevel('warning')
 # if in pilot mode, apply overrides according to preferences
 if PILOTING:
@@ -2157,6 +2157,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Beginning of main experiment trial block
     dev.activate_line(bitmask=block_start_code)
     eyetracker.sendMessage(block_start_code)
+    # no need to wait 500ms because this routine lasts 2.0s before trial triggers
     
     # keep track of which components have finished
     close_eyesComponents = [text_close_eyes]
@@ -2347,11 +2348,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # Run 'Each Frame' code from trigger_tone
             if sound_tone.status == STARTED and not pulse_started:
                 if tone_is_oddball:
-                    win.callOnFlip(dev.activate_line, bitmask=oddball_p300_code)
-                    win.callOnFlip(eyetracker.sendMessage, oddball_p300_code)
+                    dev.activate_line(bitmask=oddball_p300_code)
+                    eyetracker.sendMessage(oddball_p300_code)
                 else:
-                    win.callOnFlip(dev.activate_line, bitmask=regular_p300_code)
-                    win.callOnFlip(eyetracker.sendMessage, regular_p300_code)
+                    dev.activate_line(bitmask=regular_p300_code)
+                    eyetracker.sendMessage(regular_p300_code)
             
                 pulse_started = True
             
@@ -2458,6 +2459,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # End of main experiment trial block
     dev.activate_line(bitmask=block_end_code)
     eyetracker.sendMessage(block_end_code)
+    # no need to wait 500ms as this routine lasts 3.0s before experiment ends
     
     # keep track of which components have finished
     __end__Components = [text_thank_you, read_thank_you]
