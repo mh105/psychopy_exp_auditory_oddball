@@ -2,7 +2,7 @@
 Last edit: 06/30/2024
 
 ## Edit history
-06/30/2024 by Alex He - created finalized first draft version
+- 06/30/2024 by Alex He - created finalized first draft version
 
 ## Description
 This task is used to elicit the classical P300 event-related potential (ERP) response to oddballs in a target detection paradigm. A number of variations of the task design have been used in the literature as well summarized by:
