@@ -1,7 +1,8 @@
 # Auditory oddball task
-Last edit: 06/30/2024
+Last edit: 07/17/2024
 
 ## Edit history
+- 07/17/2024 by Amber Hu - added the ITI variable into output file
 - 06/30/2024 by Alex He - created finalized first draft version
 
 ## Description

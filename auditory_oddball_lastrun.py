@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.5),
-    on Sun Jun 30 07:56:49 2024
+    on Wed Jul 17 16:17:22 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -2285,6 +2285,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # check if the cucrent sound is an oddball
         tone_is_oddball = tone_frequency == oddball_frequency
         thisExp.addData('tone_is_oddball', tone_is_oddball)  # add to data table
+        thisExp.addData('iti', iti - 0.2)  # add to data table
         
         sound_tone.setSound(tone_frequency, secs=0.2, hamming=True)
         sound_tone.setVolume(1.0, log=False)

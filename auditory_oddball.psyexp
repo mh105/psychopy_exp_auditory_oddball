@@ -324,7 +324,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Get the last element in the array that gets consumed during trial loop&amp;#10;iti = iti_list.pop(0)&amp;#10;tone_frequency = tone_frequency_list.pop(0)&amp;#10;&amp;#10;# check if the cucrent sound is an oddball&amp;#10;tone_is_oddball = tone_frequency == oddball_frequency&amp;#10;thisExp.addData('tone_is_oddball', tone_is_oddball)  # add to data table&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Get the last element in the array that gets consumed during trial loop&amp;#10;iti = iti_list.pop(0)&amp;#10;tone_frequency = tone_frequency_list.pop(0)&amp;#10;&amp;#10;# check if the cucrent sound is an oddball&amp;#10;tone_is_oddball = tone_frequency == oddball_frequency&amp;#10;thisExp.addData('tone_is_oddball', tone_is_oddball)  # add to data table&amp;#10;thisExp.addData('iti', iti - 0.2)  # add to data table&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
