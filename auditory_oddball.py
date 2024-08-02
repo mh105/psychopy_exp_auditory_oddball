@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2024.2.0a1),
-    on Tue Jul 23 21:46:27 2024
+This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1a1),
+    on Fri Aug  2 11:23:12 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -74,7 +74,7 @@ deviceManager = hardware.DeviceManager()
 # ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
-psychopyVersion = '2024.2.0a1'
+psychopyVersion = '2024.2.1a1'
 expName = 'auditory_oddball'  # from the Builder filename that created this script
 # information about this experiment
 expInfo = {
@@ -95,7 +95,7 @@ or run the experiment with `--pilot` as an argument. To change what pilot
 PILOTING = core.setPilotModeFromArgs()
 # start off with values from experiment settings
 _fullScr = True
-_winSize = [2560, 1440]
+_winSize = [1728, 1117]
 # if in pilot mode, apply overrides according to preferences
 if PILOTING:
     # force windowed mode
