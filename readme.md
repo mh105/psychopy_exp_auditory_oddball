@@ -1,7 +1,8 @@
 # Auditory oddball task
-Last edit: 08/04/2024
+Last edit: 08/12/2024
 
 ## Edit history
+- 08/12/2024 by Alex He - revert to python 3.8 as pylink connection to EyeLink does not work correctly on 3.10
 - 08/04/2024 by Alex He - generated experiment scripts on python 3.10
 - 08/02/2024 by Alex He - upgraded to support PsychoPy 2024.2.1
 - 07/23/2024 by Alex He - upgraded to support PsychoPy 2024.2.0
