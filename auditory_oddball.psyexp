@@ -26,7 +26,7 @@
     <Param val="False" valType="bool" updates="None" name="Show mouse"/>
     <Param val="height" valType="str" updates="None" name="Units"/>
     <Param val="" valType="str" updates="None" name="Use version"/>
-    <Param val="[1728, 1117]" valType="list" updates="None" name="Window size (pixels)"/>
+    <Param val="[2560, 1440]" valType="list" updates="None" name="Window size (pixels)"/>
     <Param val="none" valType="str" updates="None" name="backgroundFit"/>
     <Param val="" valType="str" updates="None" name="backgroundImg"/>
     <Param val="avg" valType="str" updates="None" name="blendMode"/>
@@ -44,11 +44,11 @@
     <Param val="PUPIL_DIAMETER" valType="str" updates="None" name="elPupilMeasure"/>
     <Param val="1000" valType="num" updates="None" name="elSampleRate"/>
     <Param val="False" valType="bool" updates="None" name="elSimMode"/>
-    <Param val="RIGHT_EYE" valType="str" updates="None" name="elTrackEyes"/>
+    <Param val="LEFT_EYE" valType="str" updates="None" name="elTrackEyes"/>
     <Param val="PUPIL_CR_TRACKING" valType="str" updates="None" name="elTrackingMode"/>
     <Param val="auditory_oddball" valType="str" updates="None" name="expName"/>
     <Param val="on Sync" valType="str" updates="None" name="exportHTML"/>
-    <Param val="MouseGaze" valType="str" updates="None" name="eyetracker"/>
+    <Param val="SR Research Ltd" valType="str" updates="None" name="eyetracker"/>
     <Param val="" valType="code" updates="None" name="frameRate"/>
     <Param val="Attempting to measure frame rate of screen, please wait..." valType="str" updates="None" name="frameRateMsg"/>
     <Param val="127.0.0.1" valType="str" updates="None" name="gpAddress"/>
@@ -260,7 +260,7 @@
         <Param val="task_id" valType="code" updates="None" name="name"/>
       </CodeComponent>
       <CodeComponent name="eeg" plugin="None">
-        <Param val="import pyxid2&amp;#10;&amp;#10;devices = pyxid2.get_xid_devices()&amp;#10;&amp;#10;if devices:&amp;#10;    dev = devices[0]&amp;#10;    assert dev.device_name == 'Cedrus C-POD', &quot;Incorrect C-POD detected.&quot;&amp;#10;    dev.set_pulse_duration(50)  # set pulse duration to 50ms&amp;#10;&amp;#10;    # Start EEG recording&amp;#10;    dev.activate_line(bitmask=126)  # trigger 126 will start EEG&amp;#10;    core.wait(10)  # wait 10s for the EEG system to start recording&amp;#10;&amp;#10;    # Marching lights test&amp;#10;    print(&quot;C-POD&lt;-&gt;eego 7-bit trigger lines test...&quot;)&amp;#10;    for line in range(1, 8):  # raise lines 1-7 one at a time&amp;#10;        print(&quot;  raising line {} (bitmask {})&quot;.format(line, 2 ** (line-1)))&amp;#10;        dev.activate_line(lines=line)&amp;#10;        core.wait(0.5)  # wait 500ms between two consecutive triggers&amp;#10;    dev.con.set_digio_lines_to_mask(0)  # XidDevice.clear_all_lines()&amp;#10;&amp;#10;else:&amp;#10;    # Dummy XidDevice for code components to run without C-POD connected&amp;#10;    class dummyXidDevice(object):&amp;#10;        def __init__(self):&amp;#10;            pass&amp;#10;        def activate_line(self, lines=None, bitmask=None):&amp;#10;            pass&amp;#10;&amp;#10;&amp;#10;    print(&quot;WARNING: No C-POD connected for this session! &quot;&amp;#10;          &quot;You must start/stop EEG recording manually!&quot;)&amp;#10;    dev = dummyXidDevice()&amp;#10;" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="import pyxid2&amp;#10;print(&quot;Getting a list of all attached XID devices...&quot;)&amp;#10;devices = pyxid2.get_xid_devices()&amp;#10;&amp;#10;if devices:&amp;#10;    dev = devices[0]&amp;#10;    print(&quot;Found device:&quot;, dev)&amp;#10;    assert dev.device_name == 'Cedrus C-POD', &quot;Incorrect C-POD detected.&quot;&amp;#10;    dev.set_pulse_duration(50)  # set pulse duration to 50ms&amp;#10;&amp;#10;    # Start EEG recording&amp;#10;    print(&quot;Sending trigger code 126 to start EEG recording...&quot;)&amp;#10;    dev.activate_line(bitmask=126)  # trigger 126 will start EEG&amp;#10;    print(&quot;Waiting 10 seconds for the EEG recording to start...&quot;)&amp;#10;    print(&quot;&quot;)&amp;#10;    core.wait(10)  # wait 10s for the EEG system to start recording&amp;#10;&amp;#10;    # Marching lights test&amp;#10;    print(&quot;C-POD&lt;-&gt;eego 7-bit trigger lines test...&quot;)&amp;#10;    for line in range(1, 8):  # raise lines 1-7 one at a time&amp;#10;        print(&quot;  raising line {} (bitmask {})&quot;.format(line, 2 ** (line-1)))&amp;#10;        dev.activate_line(lines=line)&amp;#10;        core.wait(0.5)  # wait 500ms between two consecutive triggers&amp;#10;    dev.con.set_digio_lines_to_mask(0)  # XidDevice.clear_all_lines()&amp;#10;    print(&quot;EEG system is now ready for the experiment to start.&quot;)&amp;#10;    print(&quot;&quot;)&amp;#10;&amp;#10;else:&amp;#10;    # Dummy XidDevice for code components to run without C-POD connected&amp;#10;    class dummyXidDevice(object):&amp;#10;        def __init__(self):&amp;#10;            pass&amp;#10;        def activate_line(self, lines=None, bitmask=None):&amp;#10;            pass&amp;#10;&amp;#10;&amp;#10;    print(&quot;WARNING: No C-POD connected for this session! &quot;&amp;#10;          &quot;You must start/stop EEG recording manually!&quot;)&amp;#10;    dev = dummyXidDevice()&amp;#10;" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>

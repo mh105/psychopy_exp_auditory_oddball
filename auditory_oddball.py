@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1a1),
-    on Mon Aug 12 22:17:57 2024
+    on Fri Aug 16 19:45:59 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -35,16 +35,20 @@ from psychopy.hardware import keyboard
 
 # Run 'Before Experiment' code from eeg
 import pyxid2
-
+print("Getting a list of all attached XID devices...")
 devices = pyxid2.get_xid_devices()
 
 if devices:
     dev = devices[0]
+    print("Found device:", dev)
     assert dev.device_name == 'Cedrus C-POD', "Incorrect C-POD detected."
     dev.set_pulse_duration(50)  # set pulse duration to 50ms
 
     # Start EEG recording
+    print("Sending trigger code 126 to start EEG recording...")
     dev.activate_line(bitmask=126)  # trigger 126 will start EEG
+    print("Waiting 10 seconds for the EEG recording to start...")
+    print("")
     core.wait(10)  # wait 10s for the EEG system to start recording
 
     # Marching lights test
@@ -54,6 +58,8 @@ if devices:
         dev.activate_line(lines=line)
         core.wait(0.5)  # wait 500ms between two consecutive triggers
     dev.con.set_digio_lines_to_mask(0)  # XidDevice.clear_all_lines()
+    print("EEG system is now ready for the experiment to start.")
+    print("")
 
 else:
     # Dummy XidDevice for code components to run without C-POD connected
@@ -95,7 +101,7 @@ or run the experiment with `--pilot` as an argument. To change what pilot
 PILOTING = core.setPilotModeFromArgs()
 # start off with values from experiment settings
 _fullScr = True
-_winSize = [1728, 1117]
+_winSize = [2560, 1440]
 # if in pilot mode, apply overrides according to preferences
 if PILOTING:
     # force windowed mode
@@ -275,12 +281,24 @@ def setupDevices(expInfo, thisExp, win):
     ioConfig = {}
     
     # Setup eyetracking
-    ioConfig['eyetracker.hw.mouse.EyeTracker'] = {
+    ioConfig['eyetracker.eyelink.EyeTracker'] = {
         'name': 'tracker',
-        'controls': {
-            'move': [],
-            'blink':('LEFT_BUTTON',),
-            'saccade_threshold': 0.5,
+        'model_name': 'EYELINK 1000 DESKTOP',
+        'simulation_mode': False,
+        'network_settings': '100.1.1.1',
+        'default_native_data_file_name': 'EXPFILE',
+        'runtime_settings': {
+            'sampling_rate': 1000.0,
+            'track_eyes': 'LEFT_EYE',
+            'sample_filtering': {
+                'FILTER_FILE': 'FILTER_LEVEL_OFF',
+                'FILTER_ONLINE': 'FILTER_LEVEL_OFF',
+            },
+            'vog_settings': {
+                'pupil_measure_types': 'PUPIL_DIAMETER',
+                'tracking_mode': 'PUPIL_CR_TRACKING',
+                'pupil_center_algorithm': 'ELLIPSE_FIT',
+            }
         }
     }
     
