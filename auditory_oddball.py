@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1a1),
-    on Fri Aug 16 19:45:59 2024
+    on Thu Sep  5 11:39:49 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -35,8 +35,48 @@ from psychopy.hardware import keyboard
 
 # Run 'Before Experiment' code from eeg
 import pyxid2
-print("Getting a list of all attached XID devices...")
-devices = pyxid2.get_xid_devices()
+import threading
+import _thread
+
+
+def exit_after(s):
+    '''
+    function decorator to raise KeyboardInterrupt exception
+    if function takes longer than s seconds
+    '''
+    def outer(fn):
+        def inner(*args, **kwargs):
+            timer = threading.Timer(s, _thread.interrupt_main)
+            timer.start()
+            try:
+                result = fn(*args, **kwargs)
+            finally:
+                timer.cancel()
+            return result
+        return inner
+    return outer
+
+
+@exit_after(0.5)  # exit if function takes longer than 0.5 seconds
+def _get_xid_devices():
+    return pyxid2.get_xid_devices()
+
+
+def get_xid_devices():
+    print("Getting a list of all attached XID devices...")
+    attempt_count = 0
+    while attempt_count >= 0:
+        attempt_count += 1
+        print('     Attempt:', attempt_count)
+        attempt_count *= -1
+        try:
+            devices = _get_xid_devices()
+        except KeyboardInterrupt:
+            attempt_count *= -1
+    return devices
+
+
+devices = get_xid_devices()
 
 if devices:
     dev = devices[0]
@@ -59,7 +99,6 @@ if devices:
         core.wait(0.5)  # wait 500ms between two consecutive triggers
     dev.con.set_digio_lines_to_mask(0)  # XidDevice.clear_all_lines()
     print("EEG system is now ready for the experiment to start.")
-    print("")
 
 else:
     # Dummy XidDevice for code components to run without C-POD connected
