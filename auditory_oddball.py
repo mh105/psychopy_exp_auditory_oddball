@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1a1),
-    on Thu Sep  5 11:39:49 2024
+    on Fri Sep  6 23:29:55 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -36,7 +36,7 @@ from psychopy.hardware import keyboard
 # Run 'Before Experiment' code from eeg
 import pyxid2
 import threading
-import _thread
+import signal
 
 
 def exit_after(s):
@@ -46,7 +46,7 @@ def exit_after(s):
     '''
     def outer(fn):
         def inner(*args, **kwargs):
-            timer = threading.Timer(s, _thread.interrupt_main)
+            timer = threading.Timer(s, signal.raise_signal, args=[signal.SIGINT])
             timer.start()
             try:
                 result = fn(*args, **kwargs)
@@ -57,7 +57,7 @@ def exit_after(s):
     return outer
 
 
-@exit_after(0.5)  # exit if function takes longer than 0.5 seconds
+@exit_after(1)  # exit if function takes longer than 1 seconds
 def _get_xid_devices():
     return pyxid2.get_xid_devices()
 
@@ -68,11 +68,11 @@ def get_xid_devices():
     while attempt_count >= 0:
         attempt_count += 1
         print('     Attempt:', attempt_count)
-        attempt_count *= -1
+        attempt_count *= -1  # try to exit the while loop
         try:
             devices = _get_xid_devices()
         except KeyboardInterrupt:
-            attempt_count *= -1
+            attempt_count *= -1  # get back in the while loop
     return devices
 
 
