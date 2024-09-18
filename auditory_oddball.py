@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1a1),
-    on Tue Sep 17 17:06:25 2024
+    on Tue Sep 17 17:20:04 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -371,18 +371,6 @@ def setupDevices(expInfo, thisExp, win):
         deviceClass='psychopy.hardware.speaker.SpeakerDevice',
         index=-1
     )
-    if deviceManager.getDevice('key_et') is None:
-        # initialise key_et
-        key_et = deviceManager.addDevice(
-            deviceClass='keyboard',
-            deviceName='key_et',
-        )
-    # create speaker 'read_et'
-    deviceManager.addDevice(
-        deviceName='read_et',
-        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
-        index=-1
-    )
     # create speaker 'read_start'
     deviceManager.addDevice(
         deviceName='read_start',
@@ -562,7 +550,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "_welcome" ---
     text_welcome = visual.TextStim(win=win, name='text_welcome',
-        text='Welcome! This task will take approximately 7 minutes.\n\nBefore we explain the task, we need to first calibrate the eyetracking camera. Please sit in a comfortable position with your head on the chin rest. Once we begin, it is important that you stay in the same position throughout this task.\n\nPlease take a moment to adjust the chair height, chin rest, and sitting posture. Make sure that you feel comfortable and can stay still for a while.\n\n\nWhen you are ready, press the spacebar',
+        text='Welcome! This task will take approximately 7 minutes.\n\nPlease take a moment to adjust the chair height, chin rest, and sitting posture. Make sure that you feel comfortable and can stay still for a while.\n\n\nWhen you are ready, press the spacebar',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -577,33 +565,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         speaker='read_welcome',    name='read_welcome'
     )
     read_welcome.setVolume(1.0)
-    
-    # --- Initialize components for Routine "_et_instruct" ---
-    text_et = visual.TextStim(win=win, name='text_et',
-        text='During the calibration, you will see a target circle moving around the screen. Please try to track it with your eyes.\n\nMake sure to keep looking at the circle when it stops, and follow it when it moves. It is important that you keep your head on the chin rest once this part begins.\n\n\nPress the spacebar when you are ready, and our team will start the calibration for you',
-        font='Arial',
-        units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=0.0);
-    key_et = keyboard.Keyboard(deviceName='key_et')
-    read_et = sound.Sound(
-        'A', 
-        secs=-1, 
-        stereo=True, 
-        hamming=True, 
-        speaker='read_et',    name='read_et'
-    )
-    read_et.setVolume(1.0)
-    
-    # --- Initialize components for Routine "_et_mask" ---
-    text_mask = visual.TextStim(win=win, name='text_mask',
-        text=None,
-        font='Arial',
-        pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=0.0);
     
     # --- Initialize components for Routine "__start__" ---
     text_start = visual.TextStim(win=win, name='text_start',
@@ -994,298 +955,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     read_welcome.pause()  # ensure sound has stopped at end of Routine
     thisExp.nextEntry()
     # the Routine "_welcome" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
-    # --- Prepare to start Routine "_et_instruct" ---
-    # create an object to store info about Routine _et_instruct
-    _et_instruct = data.Routine(
-        name='_et_instruct',
-        components=[text_et, key_et, read_et],
-    )
-    _et_instruct.status = NOT_STARTED
-    continueRoutine = True
-    # update component parameters for each repeat
-    # create starting attributes for key_et
-    key_et.keys = []
-    key_et.rt = []
-    _key_et_allKeys = []
-    read_et.setSound('resource/eyetrack_calibrate_instruct.wav', hamming=True)
-    read_et.setVolume(1.0, log=False)
-    read_et.seek(0)
-    # store start times for _et_instruct
-    _et_instruct.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-    _et_instruct.tStart = globalClock.getTime(format='float')
-    _et_instruct.status = STARTED
-    _et_instruct.maxDuration = None
-    # keep track of which components have finished
-    _et_instructComponents = _et_instruct.components
-    for thisComponent in _et_instruct.components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "_et_instruct" ---
-    _et_instruct.forceEnded = routineForceEnded = not continueRoutine
-    while continueRoutine:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *text_et* updates
-        
-        # if text_et is starting this frame...
-        if text_et.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_et.frameNStart = frameN  # exact frame index
-            text_et.tStart = t  # local t and not account for scr refresh
-            text_et.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_et, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            text_et.status = STARTED
-            text_et.setAutoDraw(True)
-        
-        # if text_et is active this frame...
-        if text_et.status == STARTED:
-            # update params
-            pass
-        
-        # *key_et* updates
-        waitOnFlip = False
-        
-        # if key_et is starting this frame...
-        if key_et.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
-            # keep track of start time/frame for later
-            key_et.frameNStart = frameN  # exact frame index
-            key_et.tStart = t  # local t and not account for scr refresh
-            key_et.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(key_et, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            key_et.status = STARTED
-            # keyboard checking is just starting
-            waitOnFlip = True
-            win.callOnFlip(key_et.clock.reset)  # t=0 on next screen flip
-            win.callOnFlip(key_et.clearEvents, eventType='keyboard')  # clear events on next screen flip
-        if key_et.status == STARTED and not waitOnFlip:
-            theseKeys = key_et.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
-            _key_et_allKeys.extend(theseKeys)
-            if len(_key_et_allKeys):
-                key_et.keys = _key_et_allKeys[-1].name  # just the last key pressed
-                key_et.rt = _key_et_allKeys[-1].rt
-                key_et.duration = _key_et_allKeys[-1].duration
-                # a response ends the routine
-                continueRoutine = False
-        
-        # *read_et* updates
-        
-        # if read_et is starting this frame...
-        if read_et.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
-            # keep track of start time/frame for later
-            read_et.frameNStart = frameN  # exact frame index
-            read_et.tStart = t  # local t and not account for scr refresh
-            read_et.tStartRefresh = tThisFlipGlobal  # on global time
-            # update status
-            read_et.status = STARTED
-            read_et.play(when=win)  # sync with win flip
-        
-        # if read_et is stopping this frame...
-        if read_et.status == STARTED:
-            if bool(False) or read_et.isFinished:
-                # keep track of stop time/frame for later
-                read_et.tStop = t  # not accounting for scr refresh
-                read_et.tStopRefresh = tThisFlipGlobal  # on global time
-                read_et.frameNStop = frameN  # exact frame index
-                # update status
-                read_et.status = FINISHED
-                read_et.stop()
-        
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
-        # pause experiment here if requested
-        if thisExp.status == PAUSED:
-            pauseExperiment(
-                thisExp=thisExp, 
-                win=win, 
-                timers=[routineTimer], 
-                playbackComponents=[read_et]
-            )
-            # skip the frame we paused on
-            continue
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            _et_instruct.forceEnded = routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in _et_instruct.components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "_et_instruct" ---
-    for thisComponent in _et_instruct.components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # store stop times for _et_instruct
-    _et_instruct.tStop = globalClock.getTime(format='float')
-    _et_instruct.tStopRefresh = tThisFlipGlobal
-    read_et.pause()  # ensure sound has stopped at end of Routine
-    thisExp.nextEntry()
-    # the Routine "_et_instruct" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
-    # --- Prepare to start Routine "_et_mask" ---
-    # create an object to store info about Routine _et_mask
-    _et_mask = data.Routine(
-        name='_et_mask',
-        components=[text_mask],
-    )
-    _et_mask.status = NOT_STARTED
-    continueRoutine = True
-    # update component parameters for each repeat
-    # store start times for _et_mask
-    _et_mask.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-    _et_mask.tStart = globalClock.getTime(format='float')
-    _et_mask.status = STARTED
-    _et_mask.maxDuration = None
-    # keep track of which components have finished
-    _et_maskComponents = _et_mask.components
-    for thisComponent in _et_mask.components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "_et_mask" ---
-    _et_mask.forceEnded = routineForceEnded = not continueRoutine
-    while continueRoutine and routineTimer.getTime() < 0.05:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *text_mask* updates
-        
-        # if text_mask is starting this frame...
-        if text_mask.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_mask.frameNStart = frameN  # exact frame index
-            text_mask.tStart = t  # local t and not account for scr refresh
-            text_mask.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_mask, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            text_mask.status = STARTED
-            text_mask.setAutoDraw(True)
-        
-        # if text_mask is active this frame...
-        if text_mask.status == STARTED:
-            # update params
-            pass
-        
-        # if text_mask is stopping this frame...
-        if text_mask.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > text_mask.tStartRefresh + 0.05-frameTolerance:
-                # keep track of stop time/frame for later
-                text_mask.tStop = t  # not accounting for scr refresh
-                text_mask.tStopRefresh = tThisFlipGlobal  # on global time
-                text_mask.frameNStop = frameN  # exact frame index
-                # update status
-                text_mask.status = FINISHED
-                text_mask.setAutoDraw(False)
-        
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
-        # pause experiment here if requested
-        if thisExp.status == PAUSED:
-            pauseExperiment(
-                thisExp=thisExp, 
-                win=win, 
-                timers=[routineTimer], 
-                playbackComponents=[]
-            )
-            # skip the frame we paused on
-            continue
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            _et_mask.forceEnded = routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in _et_mask.components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "_et_mask" ---
-    for thisComponent in _et_mask.components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # store stop times for _et_mask
-    _et_mask.tStop = globalClock.getTime(format='float')
-    _et_mask.tStopRefresh = tThisFlipGlobal
-    # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
-    if _et_mask.maxDurationReached:
-        routineTimer.addTime(-_et_mask.maxDuration)
-    elif _et_mask.forceEnded:
-        routineTimer.reset()
-    else:
-        routineTimer.addTime(-0.050000)
-    thisExp.nextEntry()
-    # define target for _et_cal
-    _et_calTarget = visual.TargetStim(win, 
-        name='_et_calTarget',
-        radius=0.015, fillColor='white', borderColor='green', lineWidth=2.0,
-        innerRadius=0.005, innerFillColor='black', innerBorderColor='black', innerLineWidth=2.0,
-        colorSpace='rgb', units=None
-    )
-    # define parameters for _et_cal
-    _et_cal = hardware.eyetracker.EyetrackerCalibration(win, 
-        eyetracker, _et_calTarget,
-        units=None, colorSpace='rgb',
-        progressMode='time', targetDur=1.5, expandScale=1.5,
-        targetLayout='NINE_POINTS', randomisePos=True, textColor='white',
-        movementAnimation=True, targetDelay=1.0
-    )
-    # run calibration
-    _et_cal.run()
-    # clear any keypresses from during _et_cal so they don't interfere with the experiment
-    defaultKeyboard.clearEvents()
-    thisExp.nextEntry()
-    # the Routine "_et_cal" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
     # --- Prepare to start Routine "__start__" ---
