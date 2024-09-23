@@ -1,7 +1,8 @@
 # Auditory oddball task
-Last edit: 09/05/2024
+Last edit: 09/23/2024
 
 ## Edit history
+- 09/23/2024 by Alex He - upgraded to run on PsychoPy 2024.2.2
 - 09/05/2024 by Alex He - removed git tracking of _lastrun.py file and added retries to pyxid2.get_xid_devices() with timeout
 - 08/17/2024 by Alex He - added more print messages during c-pod connection
 - 08/12/2024 by Alex He - reverted to python 3.8 as pylink connection to EyeLink does not work correctly on 3.10
