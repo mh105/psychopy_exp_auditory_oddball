@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Mon Sep 23 11:38:24 2024
+    on Wed Sep 25 11:42:05 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -274,11 +274,11 @@ def setupWindow(expInfo=None, win=None):
         # if not given a window to setup, make one
         win = visual.Window(
             size=_winSize, fullscr=_fullScr, screen=0,
-            winType='pyglet', allowStencil=False,
+            winType='pyglet', allowGUI=False, allowStencil=False,
             monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
             backgroundImage='', backgroundFit='none',
             blendMode='avg', useFBO=True,
-            units='height', 
+            units='height',
             checkTiming=False  # we're going to do this ourselves in a moment
         )
     else:
@@ -288,7 +288,6 @@ def setupWindow(expInfo=None, win=None):
         win.backgroundImage = ''
         win.backgroundFit = 'none'
         win.units = 'height'
-    win.mouseVisible = False
     win.hideMessage()
     # show a visual indicator if we're in piloting mode
     if PILOTING and prefs.piloting['showPilotingIndicator']:
@@ -523,6 +522,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     """
     # mark experiment as started
     thisExp.status = STARTED
+    # make sure window is set to foreground to prevent losing focus
+    win.winHandle.activate()
     # make sure variables created by exec are available globally
     exec = environmenttools.setExecEnvironment(globals())
     # get device handles from dict of input devices
