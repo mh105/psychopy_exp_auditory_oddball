@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Wed Sep 25 11:42:05 2024
+    on Thu Oct 10 13:56:41 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -370,18 +370,18 @@ def setupDevices(expInfo, thisExp, win):
         deviceClass='psychopy.hardware.speaker.SpeakerDevice',
         index=-1
     )
-    # create speaker 'read_start'
-    deviceManager.addDevice(
-        deviceName='read_start',
-        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
-        index=-1
-    )
     if deviceManager.getDevice('key_instruct_oddball') is None:
         # initialise key_instruct_oddball
         key_instruct_oddball = deviceManager.addDevice(
             deviceClass='keyboard',
             deviceName='key_instruct_oddball',
         )
+    # create speaker 'read_instruct_oddball'
+    deviceManager.addDevice(
+        deviceName='read_instruct_oddball',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     # create speaker 'sound_oddball'
     deviceManager.addDevice(
         deviceName='sound_oddball',
@@ -394,6 +394,12 @@ def setupDevices(expInfo, thisExp, win):
             deviceClass='keyboard',
             deviceName='key_instruct_regular',
         )
+    # create speaker 'read_instruct_regular'
+    deviceManager.addDevice(
+        deviceName='read_instruct_regular',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     # create speaker 'sound_regular'
     deviceManager.addDevice(
         deviceName='sound_regular',
@@ -406,6 +412,12 @@ def setupDevices(expInfo, thisExp, win):
             deviceClass='keyboard',
             deviceName='key_instruct_combined',
         )
+    # create speaker 'read_instruct_combined'
+    deviceManager.addDevice(
+        deviceName='read_instruct_combined',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     # create speaker 'sound_oddball_combined'
     deviceManager.addDevice(
         deviceName='sound_oddball_combined',
@@ -424,12 +436,30 @@ def setupDevices(expInfo, thisExp, win):
             deviceClass='keyboard',
             deviceName='key_instruct_verify',
         )
+    # create speaker 'read_instruct_verify'
+    deviceManager.addDevice(
+        deviceName='read_instruct_verify',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     if deviceManager.getDevice('key_instruct_begin') is None:
         # initialise key_instruct_begin
         key_instruct_begin = deviceManager.addDevice(
             deviceClass='keyboard',
             deviceName='key_instruct_begin',
         )
+    # create speaker 'read_instruct_begin'
+    deviceManager.addDevice(
+        deviceName='read_instruct_begin',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
+    # create speaker 'read_close_eyes'
+    deviceManager.addDevice(
+        deviceName='read_close_eyes',
+        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
+        index=-1
+    )
     # create speaker 'sound_tone'
     deviceManager.addDevice(
         deviceName='sound_tone',
@@ -551,7 +581,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "_welcome" ---
     text_welcome = visual.TextStim(win=win, name='text_welcome',
-        text='Welcome! This task will take approximately 7 minutes.\n\nPlease take a moment to adjust the chair height, chin rest, and sitting posture. Make sure that you feel comfortable and can stay still for a while.\n\n\nWhen you are ready, press the spacebar',
+        text='Welcome! This task will take approximately 10 minutes.\n\nPlease take a moment to adjust the chair height, chin rest, and sitting posture. Make sure that you feel comfortable and can stay still for a while.\n\n\nWhen you are ready, press any of the white keys to begin',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -568,21 +598,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     read_welcome.setVolume(1.0)
     
     # --- Initialize components for Routine "__start__" ---
-    text_start = visual.TextStim(win=win, name='text_start',
-        text='We are now ready to begin...',
-        font='Arial',
-        units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=0.0);
-    read_start = sound.Sound(
-        'A', 
-        secs=1.6, 
-        stereo=True, 
-        hamming=True, 
-        speaker='read_start',    name='read_start'
-    )
-    read_start.setVolume(1.0)
     # Run 'Begin Experiment' code from trigger_table
     ##TASK ID TRIGGER VALUES##
     # special code 100 (task start, task ID should follow immediately)
@@ -631,13 +646,21 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_oddball" ---
     text_instruct_oddball = visual.TextStim(win=win, name='text_instruct_oddball',
-        text='INSTRUCTIONS:\n\nIn this task you will hear a series of tones. \n\nThere are two different tones. Every time you hear the following tone, respond by pressing the spacebar.\n\n\nPress the spacebar to hear the tone',
+        text='INSTRUCTIONS:\n\nIn this task you will hear a series of tones. \n\nThere are two different tones. Every time you hear the following tone, respond by pressing the green key.\n\n\nNow press any of the white keys to hear the tone',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     key_instruct_oddball = keyboard.Keyboard(deviceName='key_instruct_oddball')
+    read_instruct_oddball = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_instruct_oddball',    name='read_instruct_oddball'
+    )
+    read_instruct_oddball.setVolume(1.0)
     
     # --- Initialize components for Routine "tone_oddball" ---
     text_fixation_oddball = visual.TextStim(win=win, name='text_fixation_oddball',
@@ -658,13 +681,21 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_regular" ---
     text_instruct_regular = visual.TextStim(win=win, name='text_instruct_regular',
-        text="INSTRUCTIONS:\n\nEvery time you hear the following tone, don't press the spacebar.\n\nYou do not need to make any response.\n\n\nPress the spacebar to hear the tone",
+        text="INSTRUCTIONS:\n\nEvery time you hear the following tone, don't press any key.\n\nYou do not need to make any response.\n\n\nNow press any of the white keys to hear the tone",
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     key_instruct_regular = keyboard.Keyboard(deviceName='key_instruct_regular')
+    read_instruct_regular = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_instruct_regular',    name='read_instruct_regular'
+    )
+    read_instruct_regular.setVolume(1.0)
     
     # --- Initialize components for Routine "tone_regular" ---
     text_fixation_regular = visual.TextStim(win=win, name='text_fixation_regular',
@@ -685,13 +716,21 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_combined" ---
     text_instruct_combined = visual.TextStim(win=win, name='text_instruct_combined',
-        text='INSTRUCTIONS:\n\nNow we will hear both tones again.\nPay attention and decide which tone you need to respond to:\n\nis it the first tone or the second tone?\n\n\nPress the spacebar to hear the two tones',
+        text='INSTRUCTIONS:\n\nNow we will hear both tones again.\nPay attention and decide which tone you need to respond to:\n\nis it the first tone or the second tone?\n\n\nPress any of the white keys to hear the two tones together',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     key_instruct_combined = keyboard.Keyboard(deviceName='key_instruct_combined')
+    read_instruct_combined = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_instruct_combined',    name='read_instruct_combined'
+    )
+    read_instruct_combined.setVolume(1.0)
     
     # --- Initialize components for Routine "tone_combined" ---
     text_fixation_combined = visual.TextStim(win=win, name='text_fixation_combined',
@@ -720,32 +759,56 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_verify" ---
     text_instruct_verify = visual.TextStim(win=win, name='text_instruct_verify',
-        text='INSTRUCTIONS:\n\nWould you respond to the first tone or the second tone?\n\nPlease tell the examiner verbally.\n\n\nPress the spacebar to continue',
+        text='Would you respond to the first tone or the second tone?\n\nPlease tell the examiner verbally.\n\n\nPress any of the white keys to continue',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     key_instruct_verify = keyboard.Keyboard(deviceName='key_instruct_verify')
+    read_instruct_verify = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_instruct_verify',    name='read_instruct_verify'
+    )
+    read_instruct_verify.setVolume(1.0)
     
     # --- Initialize components for Routine "instruct_begin" ---
     text_instruct_begin = visual.TextStim(win=win, name='text_instruct_begin',
-        text='INSTRUCTIONS:\n\nPlease perform this task with your eyes closed and try to respond as quickly and accurately as possible.\n\n\nPress the spacebar to begin the task',
+        text='INSTRUCTIONS:\n\nPlease perform this task with your eyes closed and try to respond as quickly and accurately as possible.\n\n\nPress the green key to begin the task',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
     key_instruct_begin = keyboard.Keyboard(deviceName='key_instruct_begin')
+    read_instruct_begin = sound.Sound(
+        'A', 
+        secs=-1, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_instruct_begin',    name='read_instruct_begin'
+    )
+    read_instruct_begin.setVolume(1.0)
     
     # --- Initialize components for Routine "close_eyes" ---
     text_close_eyes = visual.TextStim(win=win, name='text_close_eyes',
-        text='Please close your eyes',
+        text='Please close your eyes...',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
+    read_close_eyes = sound.Sound(
+        'A', 
+        secs=1.6, 
+        stereo=True, 
+        hamming=True, 
+        speaker='read_close_eyes',    name='read_close_eyes'
+    )
+    read_close_eyes.setVolume(1.0)
     
     # --- Initialize components for Routine "trial" ---
     sound_tone = sound.Sound(
@@ -883,7 +946,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_welcome.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_welcome.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_welcome.status == STARTED and not waitOnFlip:
-            theseKeys = key_welcome.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_welcome.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
             _key_welcome_allKeys.extend(theseKeys)
             if len(_key_welcome_allKeys):
                 key_welcome.keys = _key_welcome_allKeys[-1].name  # just the last key pressed
@@ -962,14 +1025,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine __start__
     __start__ = data.Routine(
         name='__start__',
-        components=[text_start, read_start, etRecord],
+        components=[etRecord],
     )
     __start__.status = NOT_STARTED
     continueRoutine = True
     # update component parameters for each repeat
-    read_start.setSound('resource/ready_to_begin.wav', secs=1.6, hamming=True)
-    read_start.setVolume(1.0, log=False)
-    read_start.seek(0)
     # store start times for __start__
     __start__.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     __start__.tStart = globalClock.getTime(format='float')
@@ -991,67 +1051,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Run Routine "__start__" ---
     __start__.forceEnded = routineForceEnded = not continueRoutine
-    while continueRoutine and routineTimer.getTime() < 2.0:
+    while continueRoutine:
         # get current time
         t = routineTimer.getTime()
         tThisFlip = win.getFutureFlipTime(clock=routineTimer)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
-        
-        # *text_start* updates
-        
-        # if text_start is starting this frame...
-        if text_start.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_start.frameNStart = frameN  # exact frame index
-            text_start.tStart = t  # local t and not account for scr refresh
-            text_start.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_start, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            text_start.status = STARTED
-            text_start.setAutoDraw(True)
-        
-        # if text_start is active this frame...
-        if text_start.status == STARTED:
-            # update params
-            pass
-        
-        # if text_start is stopping this frame...
-        if text_start.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > text_start.tStartRefresh + 2.0-frameTolerance:
-                # keep track of stop time/frame for later
-                text_start.tStop = t  # not accounting for scr refresh
-                text_start.tStopRefresh = tThisFlipGlobal  # on global time
-                text_start.frameNStop = frameN  # exact frame index
-                # update status
-                text_start.status = FINISHED
-                text_start.setAutoDraw(False)
-        
-        # *read_start* updates
-        
-        # if read_start is starting this frame...
-        if read_start.status == NOT_STARTED and t >= 0.2-frameTolerance:
-            # keep track of start time/frame for later
-            read_start.frameNStart = frameN  # exact frame index
-            read_start.tStart = t  # local t and not account for scr refresh
-            read_start.tStartRefresh = tThisFlipGlobal  # on global time
-            # update status
-            read_start.status = STARTED
-            read_start.play()  # start the sound (it finishes automatically)
-        
-        # if read_start is stopping this frame...
-        if read_start.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > read_start.tStartRefresh + 1.6-frameTolerance or read_start.isFinished:
-                # keep track of stop time/frame for later
-                read_start.tStop = t  # not accounting for scr refresh
-                read_start.tStopRefresh = tThisFlipGlobal  # on global time
-                read_start.frameNStop = frameN  # exact frame index
-                # update status
-                read_start.status = FINISHED
-                read_start.stop()
         
         # *etRecord* updates
         
@@ -1085,7 +1091,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer], 
-                playbackComponents=[read_start]
+                playbackComponents=[]
             )
             # skip the frame we paused on
             continue
@@ -1111,21 +1117,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # store stop times for __start__
     __start__.tStop = globalClock.getTime(format='float')
     __start__.tStopRefresh = tThisFlipGlobal
-    read_start.pause()  # ensure sound has stopped at end of Routine
-    # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
-    if __start__.maxDurationReached:
-        routineTimer.addTime(-__start__.maxDuration)
-    elif __start__.forceEnded:
-        routineTimer.reset()
-    else:
-        routineTimer.addTime(-2.000000)
     thisExp.nextEntry()
+    # the Routine "__start__" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
     
     # --- Prepare to start Routine "instruct_oddball" ---
     # create an object to store info about Routine instruct_oddball
     instruct_oddball = data.Routine(
         name='instruct_oddball',
-        components=[text_instruct_oddball, key_instruct_oddball],
+        components=[text_instruct_oddball, key_instruct_oddball, read_instruct_oddball],
     )
     instruct_oddball.status = NOT_STARTED
     continueRoutine = True
@@ -1134,6 +1134,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_instruct_oddball.keys = []
     key_instruct_oddball.rt = []
     _key_instruct_oddball_allKeys = []
+    read_instruct_oddball.setSound('resource/instruct_oddball.wav', hamming=True)
+    read_instruct_oddball.setVolume(1.0, log=False)
+    read_instruct_oddball.seek(0)
     # store start times for instruct_oddball
     instruct_oddball.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     instruct_oddball.tStart = globalClock.getTime(format='float')
@@ -1198,7 +1201,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_instruct_oddball.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_instruct_oddball.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_instruct_oddball.status == STARTED and not waitOnFlip:
-            theseKeys = key_instruct_oddball.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_instruct_oddball.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_oddball_allKeys.extend(theseKeys)
             if len(_key_instruct_oddball_allKeys):
                 key_instruct_oddball.keys = _key_instruct_oddball_allKeys[-1].name  # just the last key pressed
@@ -1206,6 +1209,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 key_instruct_oddball.duration = _key_instruct_oddball_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *read_instruct_oddball* updates
+        
+        # if read_instruct_oddball is starting this frame...
+        if read_instruct_oddball.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+            # keep track of start time/frame for later
+            read_instruct_oddball.frameNStart = frameN  # exact frame index
+            read_instruct_oddball.tStart = t  # local t and not account for scr refresh
+            read_instruct_oddball.tStartRefresh = tThisFlipGlobal  # on global time
+            # update status
+            read_instruct_oddball.status = STARTED
+            read_instruct_oddball.play(when=win)  # sync with win flip
+        
+        # if read_instruct_oddball is stopping this frame...
+        if read_instruct_oddball.status == STARTED:
+            if bool(False) or read_instruct_oddball.isFinished:
+                # keep track of stop time/frame for later
+                read_instruct_oddball.tStop = t  # not accounting for scr refresh
+                read_instruct_oddball.tStopRefresh = tThisFlipGlobal  # on global time
+                read_instruct_oddball.frameNStop = frameN  # exact frame index
+                # update status
+                read_instruct_oddball.status = FINISHED
+                read_instruct_oddball.stop()
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1219,7 +1245,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer], 
-                playbackComponents=[]
+                playbackComponents=[read_instruct_oddball]
             )
             # skip the frame we paused on
             continue
@@ -1245,6 +1271,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # store stop times for instruct_oddball
     instruct_oddball.tStop = globalClock.getTime(format='float')
     instruct_oddball.tStopRefresh = tThisFlipGlobal
+    read_instruct_oddball.pause()  # ensure sound has stopped at end of Routine
     thisExp.nextEntry()
     # the Routine "instruct_oddball" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1395,7 +1422,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine instruct_regular
     instruct_regular = data.Routine(
         name='instruct_regular',
-        components=[text_instruct_regular, key_instruct_regular],
+        components=[text_instruct_regular, key_instruct_regular, read_instruct_regular],
     )
     instruct_regular.status = NOT_STARTED
     continueRoutine = True
@@ -1404,6 +1431,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_instruct_regular.keys = []
     key_instruct_regular.rt = []
     _key_instruct_regular_allKeys = []
+    read_instruct_regular.setSound('resource/instruct_regular.wav', hamming=True)
+    read_instruct_regular.setVolume(1.0, log=False)
+    read_instruct_regular.seek(0)
     # store start times for instruct_regular
     instruct_regular.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     instruct_regular.tStart = globalClock.getTime(format='float')
@@ -1468,7 +1498,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_instruct_regular.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_instruct_regular.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_instruct_regular.status == STARTED and not waitOnFlip:
-            theseKeys = key_instruct_regular.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_instruct_regular.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_regular_allKeys.extend(theseKeys)
             if len(_key_instruct_regular_allKeys):
                 key_instruct_regular.keys = _key_instruct_regular_allKeys[-1].name  # just the last key pressed
@@ -1476,6 +1506,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 key_instruct_regular.duration = _key_instruct_regular_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *read_instruct_regular* updates
+        
+        # if read_instruct_regular is starting this frame...
+        if read_instruct_regular.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+            # keep track of start time/frame for later
+            read_instruct_regular.frameNStart = frameN  # exact frame index
+            read_instruct_regular.tStart = t  # local t and not account for scr refresh
+            read_instruct_regular.tStartRefresh = tThisFlipGlobal  # on global time
+            # update status
+            read_instruct_regular.status = STARTED
+            read_instruct_regular.play(when=win)  # sync with win flip
+        
+        # if read_instruct_regular is stopping this frame...
+        if read_instruct_regular.status == STARTED:
+            if bool(False) or read_instruct_regular.isFinished:
+                # keep track of stop time/frame for later
+                read_instruct_regular.tStop = t  # not accounting for scr refresh
+                read_instruct_regular.tStopRefresh = tThisFlipGlobal  # on global time
+                read_instruct_regular.frameNStop = frameN  # exact frame index
+                # update status
+                read_instruct_regular.status = FINISHED
+                read_instruct_regular.stop()
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1489,7 +1542,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer], 
-                playbackComponents=[]
+                playbackComponents=[read_instruct_regular]
             )
             # skip the frame we paused on
             continue
@@ -1515,6 +1568,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # store stop times for instruct_regular
     instruct_regular.tStop = globalClock.getTime(format='float')
     instruct_regular.tStopRefresh = tThisFlipGlobal
+    read_instruct_regular.pause()  # ensure sound has stopped at end of Routine
     thisExp.nextEntry()
     # the Routine "instruct_regular" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1665,7 +1719,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine instruct_combined
     instruct_combined = data.Routine(
         name='instruct_combined',
-        components=[text_instruct_combined, key_instruct_combined],
+        components=[text_instruct_combined, key_instruct_combined, read_instruct_combined],
     )
     instruct_combined.status = NOT_STARTED
     continueRoutine = True
@@ -1674,6 +1728,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_instruct_combined.keys = []
     key_instruct_combined.rt = []
     _key_instruct_combined_allKeys = []
+    read_instruct_combined.setSound('resource/instruct_combined.wav', hamming=True)
+    read_instruct_combined.setVolume(1.0, log=False)
+    read_instruct_combined.seek(0)
     # store start times for instruct_combined
     instruct_combined.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     instruct_combined.tStart = globalClock.getTime(format='float')
@@ -1738,7 +1795,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_instruct_combined.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_instruct_combined.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_instruct_combined.status == STARTED and not waitOnFlip:
-            theseKeys = key_instruct_combined.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_instruct_combined.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_combined_allKeys.extend(theseKeys)
             if len(_key_instruct_combined_allKeys):
                 key_instruct_combined.keys = _key_instruct_combined_allKeys[-1].name  # just the last key pressed
@@ -1746,6 +1803,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 key_instruct_combined.duration = _key_instruct_combined_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *read_instruct_combined* updates
+        
+        # if read_instruct_combined is starting this frame...
+        if read_instruct_combined.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+            # keep track of start time/frame for later
+            read_instruct_combined.frameNStart = frameN  # exact frame index
+            read_instruct_combined.tStart = t  # local t and not account for scr refresh
+            read_instruct_combined.tStartRefresh = tThisFlipGlobal  # on global time
+            # update status
+            read_instruct_combined.status = STARTED
+            read_instruct_combined.play(when=win)  # sync with win flip
+        
+        # if read_instruct_combined is stopping this frame...
+        if read_instruct_combined.status == STARTED:
+            if bool(False) or read_instruct_combined.isFinished:
+                # keep track of stop time/frame for later
+                read_instruct_combined.tStop = t  # not accounting for scr refresh
+                read_instruct_combined.tStopRefresh = tThisFlipGlobal  # on global time
+                read_instruct_combined.frameNStop = frameN  # exact frame index
+                # update status
+                read_instruct_combined.status = FINISHED
+                read_instruct_combined.stop()
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1759,7 +1839,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer], 
-                playbackComponents=[]
+                playbackComponents=[read_instruct_combined]
             )
             # skip the frame we paused on
             continue
@@ -1785,6 +1865,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # store stop times for instruct_combined
     instruct_combined.tStop = globalClock.getTime(format='float')
     instruct_combined.tStopRefresh = tThisFlipGlobal
+    read_instruct_combined.pause()  # ensure sound has stopped at end of Routine
     thisExp.nextEntry()
     # the Routine "instruct_combined" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1962,7 +2043,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine instruct_verify
     instruct_verify = data.Routine(
         name='instruct_verify',
-        components=[text_instruct_verify, key_instruct_verify],
+        components=[text_instruct_verify, key_instruct_verify, read_instruct_verify],
     )
     instruct_verify.status = NOT_STARTED
     continueRoutine = True
@@ -1971,6 +2052,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_instruct_verify.keys = []
     key_instruct_verify.rt = []
     _key_instruct_verify_allKeys = []
+    read_instruct_verify.setSound('resource/instruct_verify.wav', hamming=True)
+    read_instruct_verify.setVolume(1.0, log=False)
+    read_instruct_verify.seek(0)
     # store start times for instruct_verify
     instruct_verify.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     instruct_verify.tStart = globalClock.getTime(format='float')
@@ -2035,7 +2119,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_instruct_verify.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_instruct_verify.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_instruct_verify.status == STARTED and not waitOnFlip:
-            theseKeys = key_instruct_verify.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_instruct_verify.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_verify_allKeys.extend(theseKeys)
             if len(_key_instruct_verify_allKeys):
                 key_instruct_verify.keys = _key_instruct_verify_allKeys[-1].name  # just the last key pressed
@@ -2043,6 +2127,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 key_instruct_verify.duration = _key_instruct_verify_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *read_instruct_verify* updates
+        
+        # if read_instruct_verify is starting this frame...
+        if read_instruct_verify.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+            # keep track of start time/frame for later
+            read_instruct_verify.frameNStart = frameN  # exact frame index
+            read_instruct_verify.tStart = t  # local t and not account for scr refresh
+            read_instruct_verify.tStartRefresh = tThisFlipGlobal  # on global time
+            # update status
+            read_instruct_verify.status = STARTED
+            read_instruct_verify.play(when=win)  # sync with win flip
+        
+        # if read_instruct_verify is stopping this frame...
+        if read_instruct_verify.status == STARTED:
+            if bool(False) or read_instruct_verify.isFinished:
+                # keep track of stop time/frame for later
+                read_instruct_verify.tStop = t  # not accounting for scr refresh
+                read_instruct_verify.tStopRefresh = tThisFlipGlobal  # on global time
+                read_instruct_verify.frameNStop = frameN  # exact frame index
+                # update status
+                read_instruct_verify.status = FINISHED
+                read_instruct_verify.stop()
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2056,7 +2163,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer], 
-                playbackComponents=[]
+                playbackComponents=[read_instruct_verify]
             )
             # skip the frame we paused on
             continue
@@ -2082,6 +2189,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # store stop times for instruct_verify
     instruct_verify.tStop = globalClock.getTime(format='float')
     instruct_verify.tStopRefresh = tThisFlipGlobal
+    read_instruct_verify.pause()  # ensure sound has stopped at end of Routine
     thisExp.nextEntry()
     # the Routine "instruct_verify" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -2090,7 +2198,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine instruct_begin
     instruct_begin = data.Routine(
         name='instruct_begin',
-        components=[text_instruct_begin, key_instruct_begin],
+        components=[text_instruct_begin, key_instruct_begin, read_instruct_begin],
     )
     instruct_begin.status = NOT_STARTED
     continueRoutine = True
@@ -2099,6 +2207,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     key_instruct_begin.keys = []
     key_instruct_begin.rt = []
     _key_instruct_begin_allKeys = []
+    read_instruct_begin.setSound('resource/instruct_begin.wav', hamming=True)
+    read_instruct_begin.setVolume(1.0, log=False)
+    read_instruct_begin.seek(0)
     # store start times for instruct_begin
     instruct_begin.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     instruct_begin.tStart = globalClock.getTime(format='float')
@@ -2163,7 +2274,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(key_instruct_begin.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(key_instruct_begin.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_instruct_begin.status == STARTED and not waitOnFlip:
-            theseKeys = key_instruct_begin.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=True)
+            theseKeys = key_instruct_begin.getKeys(keyList=['1'], ignoreKeys=["escape"], waitRelease=True)
             _key_instruct_begin_allKeys.extend(theseKeys)
             if len(_key_instruct_begin_allKeys):
                 key_instruct_begin.keys = _key_instruct_begin_allKeys[-1].name  # just the last key pressed
@@ -2171,6 +2282,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 key_instruct_begin.duration = _key_instruct_begin_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *read_instruct_begin* updates
+        
+        # if read_instruct_begin is starting this frame...
+        if read_instruct_begin.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+            # keep track of start time/frame for later
+            read_instruct_begin.frameNStart = frameN  # exact frame index
+            read_instruct_begin.tStart = t  # local t and not account for scr refresh
+            read_instruct_begin.tStartRefresh = tThisFlipGlobal  # on global time
+            # update status
+            read_instruct_begin.status = STARTED
+            read_instruct_begin.play(when=win)  # sync with win flip
+        
+        # if read_instruct_begin is stopping this frame...
+        if read_instruct_begin.status == STARTED:
+            if bool(False) or read_instruct_begin.isFinished:
+                # keep track of stop time/frame for later
+                read_instruct_begin.tStop = t  # not accounting for scr refresh
+                read_instruct_begin.tStopRefresh = tThisFlipGlobal  # on global time
+                read_instruct_begin.frameNStop = frameN  # exact frame index
+                # update status
+                read_instruct_begin.status = FINISHED
+                read_instruct_begin.stop()
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2184,7 +2318,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer], 
-                playbackComponents=[]
+                playbackComponents=[read_instruct_begin]
             )
             # skip the frame we paused on
             continue
@@ -2210,6 +2344,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # store stop times for instruct_begin
     instruct_begin.tStop = globalClock.getTime(format='float')
     instruct_begin.tStopRefresh = tThisFlipGlobal
+    read_instruct_begin.pause()  # ensure sound has stopped at end of Routine
     thisExp.nextEntry()
     # the Routine "instruct_begin" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -2218,7 +2353,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine close_eyes
     close_eyes = data.Routine(
         name='close_eyes',
-        components=[text_close_eyes],
+        components=[text_close_eyes, read_close_eyes],
     )
     close_eyes.status = NOT_STARTED
     continueRoutine = True
@@ -2229,6 +2364,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     eyetracker.sendMessage(block_start_code)
     # no need to wait 500ms because this routine lasts 2.0s before trial triggers
     
+    read_close_eyes.setSound('resource/close_eyes.wav', secs=1.6, hamming=True)
+    read_close_eyes.setVolume(1.0, log=False)
+    read_close_eyes.seek(0)
     # store start times for close_eyes
     close_eyes.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     close_eyes.tStart = globalClock.getTime(format='float')
@@ -2288,6 +2426,30 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 text_close_eyes.status = FINISHED
                 text_close_eyes.setAutoDraw(False)
         
+        # *read_close_eyes* updates
+        
+        # if read_close_eyes is starting this frame...
+        if read_close_eyes.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
+            # keep track of start time/frame for later
+            read_close_eyes.frameNStart = frameN  # exact frame index
+            read_close_eyes.tStart = t  # local t and not account for scr refresh
+            read_close_eyes.tStartRefresh = tThisFlipGlobal  # on global time
+            # update status
+            read_close_eyes.status = STARTED
+            read_close_eyes.play(when=win)  # sync with win flip
+        
+        # if read_close_eyes is stopping this frame...
+        if read_close_eyes.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > read_close_eyes.tStartRefresh + 1.6-frameTolerance or read_close_eyes.isFinished:
+                # keep track of stop time/frame for later
+                read_close_eyes.tStop = t  # not accounting for scr refresh
+                read_close_eyes.tStopRefresh = tThisFlipGlobal  # on global time
+                read_close_eyes.frameNStop = frameN  # exact frame index
+                # update status
+                read_close_eyes.status = FINISHED
+                read_close_eyes.stop()
+        
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
             thisExp.status = FINISHED
@@ -2300,7 +2462,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer], 
-                playbackComponents=[]
+                playbackComponents=[read_close_eyes]
             )
             # skip the frame we paused on
             continue
@@ -2326,6 +2488,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # store stop times for close_eyes
     close_eyes.tStop = globalClock.getTime(format='float')
     close_eyes.tStopRefresh = tThisFlipGlobal
+    read_close_eyes.pause()  # ensure sound has stopped at end of Routine
     # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
     if close_eyes.maxDurationReached:
         routineTimer.addTime(-close_eyes.maxDuration)
@@ -2500,7 +2663,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     key_tone_resp.status = FINISHED
                     key_tone_resp.status = FINISHED
             if key_tone_resp.status == STARTED and not waitOnFlip:
-                theseKeys = key_tone_resp.getKeys(keyList=['space'], ignoreKeys=["escape"], waitRelease=False)
+                theseKeys = key_tone_resp.getKeys(keyList=['1'], ignoreKeys=["escape"], waitRelease=False)
                 _key_tone_resp_allKeys.extend(theseKeys)
                 if len(_key_tone_resp_allKeys):
                     key_tone_resp.keys = [key.name for key in _key_tone_resp_allKeys]  # storing all keys
