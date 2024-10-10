@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Thu Oct 10 13:56:41 2024
+    on Thu Oct 10 14:36:27 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -646,7 +646,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_oddball" ---
     text_instruct_oddball = visual.TextStim(win=win, name='text_instruct_oddball',
-        text='INSTRUCTIONS:\n\nIn this task you will hear a series of tones. \n\nThere are two different tones. Every time you hear the following tone, respond by pressing the green key.\n\n\nNow press any of the white keys to hear the tone',
+        text='INSTRUCTIONS:\n\nIn this task you will hear a series of tones. \n\nThere are two different tones. Every time you hear the following tone, respond by pressing the Green key.\n\n\nNow press any of the white keys to hear the tone',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -777,7 +777,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_begin" ---
     text_instruct_begin = visual.TextStim(win=win, name='text_instruct_begin',
-        text='INSTRUCTIONS:\n\nPlease perform this task with your eyes closed and try to respond as quickly and accurately as possible.\n\n\nPress the green key to begin the task',
+        text='INSTRUCTIONS:\n\nRemember to press the Green key every time you hear the first tone, and otherwise do not respond. Please perform this task with your eyes closed and try to respond as quickly and accurately as possible.\n\n\nPress the green key to begin the task',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
