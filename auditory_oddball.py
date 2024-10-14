@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Sat Oct 12 15:21:35 2024
+    on Mon Oct 14 10:51:27 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -230,6 +230,8 @@ def setupLogging(filename):
     psychopy.logging.LogFile
         Text stream to receive inputs from the logging system.
     """
+    # log the filename of last_app_load.log
+    print('target_last_app_load_log_file: ' + filename + '_last_app_load.log')
     # set how much information should be printed to the console / app
     if PILOTING:
         logging.console.setLevel(
@@ -2922,8 +2924,6 @@ def endExperiment(thisExp, win=None):
     win : psychopy.visual.Window
         Window for this experiment.
     """
-    # log the filename of last_app_load.log
-    logging.warn('target_last_app_load_log_file: ' + thisExp.dataFileName + '_last_app_load.log')
     if win is not None:
         # remove autodraw from all current components
         win.clearAutoDraw()
