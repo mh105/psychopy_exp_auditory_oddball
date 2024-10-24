@@ -1,7 +1,8 @@
 # Auditory oddball task
-Last edit: 10/12/2024
+Last edit: 10/24/2024
 
 ## Edit history
+- 10/24/2024 by Alex He - added a print message of task ID at the onset of task
 - 10/12/2024 by Alex He - increased logging granularity from warning to debug (maximal level)
 - 10/10/2024 by Alex He - added MilliKey response box and finalized voice-over audio
 - 09/25/2024 by Alex He - added winHandle.activate() to make sure window is on foreground
