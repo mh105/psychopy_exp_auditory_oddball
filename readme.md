@@ -1,7 +1,8 @@
 # Auditory oddball task
-Last edit: 10/24/2024
+Last edit: 11/13/2024
 
 ## Edit history
+- 11/13/2024 by Alex He - added the ability to repeat the practice tones
 - 10/24/2024 by Alex He - added a print message of task ID at the onset of task
 - 10/12/2024 by Alex He - increased logging granularity from warning to debug (maximal level)
 - 10/10/2024 by Alex He - added MilliKey response box and finalized voice-over audio
