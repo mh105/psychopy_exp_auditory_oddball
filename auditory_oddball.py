@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Fri Nov 22 15:25:44 2024
+    on Thu Jul 17 21:08:31 2025
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -81,7 +81,11 @@ devices = get_xid_devices()
 if devices:
     dev = devices[0]
     print("Found device:", dev)
-    assert dev.device_name == 'Cedrus C-POD', "Incorrect C-POD detected."
+    assert dev.device_name in ['Cedrus C-POD', 'Cedrus StimTracker Quad'], "Incorrect XID device detected."
+    if dev.device_name == 'Cedrus C-POD':
+        pod_name = 'C-POD'
+    else:
+        pod_name = 'M-POD'
     dev.set_pulse_duration(50)  # set pulse duration to 50ms
 
     # Start EEG recording
@@ -91,7 +95,7 @@ if devices:
     core.wait(10)  # wait 10s for the EEG system to start recording
 
     # Marching lights test
-    print("C-POD<->eego 7-bit trigger lines test...")
+    print(f"{pod_name}<->eego 7-bit trigger lines test...")
     for line in range(1, 8):  # raise lines 1-7 one at a time
         print("  raising line {} (bitmask {})".format(line, 2 ** (line-1)))
         dev.activate_line(lines=line)
@@ -108,7 +112,7 @@ else:
             pass
 
 
-    print("WARNING: No C-POD connected for this session! "
+    print("WARNING: No C/M-POD connected for this session! "
           "You must start/stop EEG recording manually!\n")
     dev = dummyXidDevice()
 
@@ -205,7 +209,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='/Users/alexhe/Dropbox (Personal)/Active_projects/PsychoPy/exp_auditory_oddball/auditory_oddball.py',
+        originPath='/Users/alexhe/Library/CloudStorage/Dropbox/Active_projects/PsychoPy/exp_auditory_oddball/auditory_oddball.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
