@@ -1,23 +1,8 @@
-# Auditory oddball task
-Last edit: 07/17/2025
+# Auditory oddball task (no pupil)
+Last edit: 08/20/2025
 
 ## Edit history
-- 07/17/2025 by Alex He - enabled flexible connection to both Cedrus C-POD and M-POD
-- 11/22/2024 by Alex He - removed summary csv saving since no trialList used
-- 11/13/2024 by Alex He - added the ability to repeat the practice tones
-- 10/24/2024 by Alex He - added a print message of task ID at the onset of task
-- 10/12/2024 by Alex He - increased logging granularity from warning to debug (maximal level)
-- 10/10/2024 by Alex He - added MilliKey response box and finalized voice-over audio
-- 09/25/2024 by Alex He - added winHandle.activate() to make sure window is on foreground
-- 09/23/2024 by Alex He - upgraded to run on PsychoPy 2024.2.2
-- 09/05/2024 by Alex He - removed git tracking of _lastrun.py file and added retries to pyxid2.get_xid_devices() with timeout
-- 08/17/2024 by Alex He - added more print messages during c-pod connection
-- 08/12/2024 by Alex He - reverted to python 3.8 as pylink connection to EyeLink does not work correctly on 3.10
-- 08/04/2024 by Alex He - generated experiment scripts on python 3.10
-- 08/02/2024 by Alex He - upgraded to support PsychoPy 2024.2.1
-- 07/23/2024 by Alex He - upgraded to support PsychoPy 2024.2.0
-- 07/17/2024 by Amber Hu - added the ITI variable into output file
-- 06/30/2024 by Alex He - created finalized first draft version
+- 08/20/2025 by Alex He - adapted version without pupillometry
 
 ## Description
 This task is used to elicit the classical P300 event-related potential (ERP) response to oddballs in a target detection paradigm. A number of variations of the task design have been used in the literature as well summarized by:

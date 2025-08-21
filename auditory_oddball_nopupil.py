@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Thu Jul 17 21:08:31 2025
+    on Wed Aug 20 21:10:59 2025
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -18,7 +18,7 @@ from psychopy import plugins
 plugins.activatePlugins()
 prefs.hardware['audioLib'] = 'ptb'
 prefs.hardware['audioLatencyMode'] = '4'
-from psychopy import sound, gui, visual, core, data, event, logging, clock, colors, layout, hardware, iohub
+from psychopy import sound, gui, visual, core, data, event, logging, clock, colors, layout, hardware
 from psychopy.tools import environmenttools
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER, priority)
@@ -123,7 +123,7 @@ deviceManager = hardware.DeviceManager()
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
 psychopyVersion = '2024.2.2a1'
-expName = 'auditory_oddball'  # from the Builder filename that created this script
+expName = 'auditory_oddball_nopupil'  # from the Builder filename that created this script
 # information about this experiment
 expInfo = {
     'participant': f"{randint(0, 999999):06.0f}",
@@ -209,7 +209,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='/Users/alexhe/Library/CloudStorage/Dropbox/Active_projects/PsychoPy/exp_auditory_oddball/auditory_oddball.py',
+        originPath='/Users/alexhe/Library/CloudStorage/Dropbox/Active_projects/PsychoPy/exp_auditory_oddball/auditory_oddball_nopupil.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -323,28 +323,6 @@ def setupDevices(expInfo, thisExp, win):
     # --- Setup input devices ---
     ioConfig = {}
     
-    # Setup eyetracking
-    ioConfig['eyetracker.eyelink.EyeTracker'] = {
-        'name': 'tracker',
-        'model_name': 'EYELINK 1000 DESKTOP',
-        'simulation_mode': False,
-        'network_settings': '100.1.1.1',
-        'default_native_data_file_name': 'EXPFILE',
-        'runtime_settings': {
-            'sampling_rate': 1000.0,
-            'track_eyes': 'LEFT_EYE',
-            'sample_filtering': {
-                'FILTER_FILE': 'FILTER_LEVEL_OFF',
-                'FILTER_ONLINE': 'FILTER_LEVEL_OFF',
-            },
-            'vog_settings': {
-                'pupil_measure_types': 'PUPIL_DIAMETER',
-                'tracking_mode': 'PUPIL_CR_TRACKING',
-                'pupil_center_algorithm': 'ELLIPSE_FIT',
-            }
-        }
-    }
-    
     # Setup iohub keyboard
     ioConfig['Keyboard'] = dict(use_keymap='psychopy')
     
@@ -356,25 +334,12 @@ def setupDevices(expInfo, thisExp, win):
     
     # store ioServer object in the device manager
     deviceManager.ioServer = ioServer
-    deviceManager.devices['eyetracker'] = ioServer.getDevice('tracker')
     
     # create a default keyboard (e.g. to check for escape)
     if deviceManager.getDevice('defaultKeyboard') is None:
         deviceManager.addDevice(
             deviceClass='keyboard', deviceName='defaultKeyboard', backend='iohub'
         )
-    if deviceManager.getDevice('key_welcome') is None:
-        # initialise key_welcome
-        key_welcome = deviceManager.addDevice(
-            deviceClass='keyboard',
-            deviceName='key_welcome',
-        )
-    # create speaker 'read_welcome'
-    deviceManager.addDevice(
-        deviceName='read_welcome',
-        deviceClass='psychopy.hardware.speaker.SpeakerDevice',
-        index=-1
-    )
     if deviceManager.getDevice('key_instruct_oddball') is None:
         # initialise key_instruct_oddball
         key_instruct_oddball = deviceManager.addDevice(
@@ -584,24 +549,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # Start Code - component code to be run after the window creation
     
-    # --- Initialize components for Routine "_welcome" ---
-    text_welcome = visual.TextStim(win=win, name='text_welcome',
-        text='Welcome! This task will take approximately 10 minutes.\n\nPlease take a moment to adjust the chair height, chin rest, and sitting posture. Make sure that you feel comfortable and can stay still for a while.\n\n\nWhen you are ready, press any of the white keys to begin',
-        font='Arial',
-        units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=0.0);
-    key_welcome = keyboard.Keyboard(deviceName='key_welcome')
-    read_welcome = sound.Sound(
-        'A', 
-        secs=-1, 
-        stereo=True, 
-        hamming=True, 
-        speaker='read_welcome',    name='read_welcome'
-    )
-    read_welcome.setVolume(1.0)
-    
     # --- Initialize components for Routine "__start__" ---
     # Run 'Begin Experiment' code from trigger_table
     ##TASK ID TRIGGER VALUES##
@@ -645,10 +592,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Inter-trial interval (ITI) ranges from 1500ms to 2500ms
     iti_list = list(1.5 + random(n_trials) + 0.2)  # beginning 200ms is the tone duration
     
-    etRecord = hardware.eyetracker.EyetrackerControl(
-        tracker=eyetracker,
-        actionType='Start Only'
-    )
     
     # --- Initialize components for Routine "instruct_oddball" ---
     text_instruct_oddball = visual.TextStim(win=win, name='text_instruct_oddball',
@@ -872,166 +815,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         format='%Y-%m-%d %Hh%M.%S.%f %z', fractionalSecondDigits=6
     )
     
-    # --- Prepare to start Routine "_welcome" ---
-    # create an object to store info about Routine _welcome
-    _welcome = data.Routine(
-        name='_welcome',
-        components=[text_welcome, key_welcome, read_welcome],
-    )
-    _welcome.status = NOT_STARTED
-    continueRoutine = True
-    # update component parameters for each repeat
-    # create starting attributes for key_welcome
-    key_welcome.keys = []
-    key_welcome.rt = []
-    _key_welcome_allKeys = []
-    read_welcome.setSound('resource/welcome.wav', hamming=True)
-    read_welcome.setVolume(1.0, log=False)
-    read_welcome.seek(0)
-    # store start times for _welcome
-    _welcome.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-    _welcome.tStart = globalClock.getTime(format='float')
-    _welcome.status = STARTED
-    _welcome.maxDuration = None
-    # keep track of which components have finished
-    _welcomeComponents = _welcome.components
-    for thisComponent in _welcome.components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "_welcome" ---
-    _welcome.forceEnded = routineForceEnded = not continueRoutine
-    while continueRoutine:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *text_welcome* updates
-        
-        # if text_welcome is starting this frame...
-        if text_welcome.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_welcome.frameNStart = frameN  # exact frame index
-            text_welcome.tStart = t  # local t and not account for scr refresh
-            text_welcome.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_welcome, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            text_welcome.status = STARTED
-            text_welcome.setAutoDraw(True)
-        
-        # if text_welcome is active this frame...
-        if text_welcome.status == STARTED:
-            # update params
-            pass
-        
-        # *key_welcome* updates
-        waitOnFlip = False
-        
-        # if key_welcome is starting this frame...
-        if key_welcome.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
-            # keep track of start time/frame for later
-            key_welcome.frameNStart = frameN  # exact frame index
-            key_welcome.tStart = t  # local t and not account for scr refresh
-            key_welcome.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(key_welcome, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            key_welcome.status = STARTED
-            # keyboard checking is just starting
-            waitOnFlip = True
-            win.callOnFlip(key_welcome.clock.reset)  # t=0 on next screen flip
-            win.callOnFlip(key_welcome.clearEvents, eventType='keyboard')  # clear events on next screen flip
-        if key_welcome.status == STARTED and not waitOnFlip:
-            theseKeys = key_welcome.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
-            _key_welcome_allKeys.extend(theseKeys)
-            if len(_key_welcome_allKeys):
-                key_welcome.keys = _key_welcome_allKeys[-1].name  # just the last key pressed
-                key_welcome.rt = _key_welcome_allKeys[-1].rt
-                key_welcome.duration = _key_welcome_allKeys[-1].duration
-                # a response ends the routine
-                continueRoutine = False
-        
-        # *read_welcome* updates
-        
-        # if read_welcome is starting this frame...
-        if read_welcome.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
-            # keep track of start time/frame for later
-            read_welcome.frameNStart = frameN  # exact frame index
-            read_welcome.tStart = t  # local t and not account for scr refresh
-            read_welcome.tStartRefresh = tThisFlipGlobal  # on global time
-            # update status
-            read_welcome.status = STARTED
-            read_welcome.play(when=win)  # sync with win flip
-        
-        # if read_welcome is stopping this frame...
-        if read_welcome.status == STARTED:
-            if bool(False) or read_welcome.isFinished:
-                # keep track of stop time/frame for later
-                read_welcome.tStop = t  # not accounting for scr refresh
-                read_welcome.tStopRefresh = tThisFlipGlobal  # on global time
-                read_welcome.frameNStop = frameN  # exact frame index
-                # update status
-                read_welcome.status = FINISHED
-                read_welcome.stop()
-        
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
-        # pause experiment here if requested
-        if thisExp.status == PAUSED:
-            pauseExperiment(
-                thisExp=thisExp, 
-                win=win, 
-                timers=[routineTimer], 
-                playbackComponents=[read_welcome]
-            )
-            # skip the frame we paused on
-            continue
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            _welcome.forceEnded = routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in _welcome.components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "_welcome" ---
-    for thisComponent in _welcome.components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # store stop times for _welcome
-    _welcome.tStop = globalClock.getTime(format='float')
-    _welcome.tStopRefresh = tThisFlipGlobal
-    read_welcome.pause()  # ensure sound has stopped at end of Routine
-    thisExp.nextEntry()
-    # the Routine "_welcome" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
     # --- Prepare to start Routine "__start__" ---
     # create an object to store info about Routine __start__
     __start__ = data.Routine(
         name='__start__',
-        components=[etRecord],
+        components=[],
     )
     __start__.status = NOT_STARTED
     continueRoutine = True
@@ -1064,26 +852,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
-        
-        # *etRecord* updates
-        
-        # if etRecord is starting this frame...
-        if etRecord.status == NOT_STARTED and t >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            etRecord.frameNStart = frameN  # exact frame index
-            etRecord.tStart = t  # local t and not account for scr refresh
-            etRecord.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(etRecord, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.addData('etRecord.started', t)
-            # update status
-            etRecord.status = STARTED
-            etRecord.start()
-        if etRecord.status == STARTED:
-            etRecord.tStop = t  # not accounting for scr refresh
-            etRecord.tStopRefresh = tThisFlipGlobal  # on global time
-            etRecord.frameNStop = frameN  # exact frame index
-            etRecord.status = FINISHED
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2407,7 +2175,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Run 'Begin Routine' code from trigger_trial_block
     # Beginning of main experiment trial block
     dev.activate_line(bitmask=block_start_code)
-    eyetracker.sendMessage(block_start_code)
     # no need to wait 500ms because this routine lasts 2.0s before trial triggers
     
     # store start times for close_eyes
@@ -2665,10 +2432,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if sound_tone.status == STARTED and not pulse_started:
                 if tone_is_oddball:
                     dev.activate_line(bitmask=oddball_p300_code)
-                    eyetracker.sendMessage(oddball_p300_code)
                 else:
                     dev.activate_line(bitmask=regular_p300_code)
-                    eyetracker.sendMessage(regular_p300_code)
             
                 pulse_started = True
             
@@ -2784,7 +2549,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Run 'Begin Routine' code from trigger_trial_block_end
     # End of main experiment trial block
     dev.activate_line(bitmask=block_end_code)
-    eyetracker.sendMessage(block_end_code)
     # no need to wait 500ms as this routine lasts 3.0s before experiment ends
     
     # store start times for __end__
