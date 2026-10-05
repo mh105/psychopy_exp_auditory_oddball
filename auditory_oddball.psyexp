@@ -1156,10 +1156,6 @@
   <Flow>
     <Routine name="_welcome"/>
     <Routine name="__start__"/>
-    <Routine name="instruct_oddball"/>
-    <Routine name="tone_oddball"/>
-    <Routine name="instruct_regular"/>
-    <Routine name="tone_regular"/>
     <LoopInitiator loopType="TrialHandler" name="practice_loop">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>
@@ -1171,6 +1167,10 @@
       <Param name="name" updates="None" val="practice_loop" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
+    <Routine name="instruct_oddball"/>
+    <Routine name="tone_oddball"/>
+    <Routine name="instruct_regular"/>
+    <Routine name="tone_regular"/>
     <Routine name="instruct_combined"/>
     <Routine name="tone_combined"/>
     <Routine name="instruct_verify"/>

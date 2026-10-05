@@ -1,7 +1,8 @@
 # Auditory oddball task
-Last edit: 07/17/2025
+Last edit: 10/05/2026
 
 ## Edit history
+- 10/05/2026 by Alex He - also repeat instructions when repeating practice
 - 07/17/2025 by Alex He - enabled flexible connection to both Cedrus C-POD and M-POD
 - 11/22/2024 by Alex He - removed summary csv saving since no trialList used
 - 11/13/2024 by Alex He - added the ability to repeat the practice tones

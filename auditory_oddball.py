@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Thu Jul 17 21:08:31 2025
+    on Mon Oct  5 13:08:09 2026
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1127,600 +1127,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # the Routine "__start__" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # --- Prepare to start Routine "instruct_oddball" ---
-    # create an object to store info about Routine instruct_oddball
-    instruct_oddball = data.Routine(
-        name='instruct_oddball',
-        components=[text_instruct_oddball, key_instruct_oddball, read_instruct_oddball],
-    )
-    instruct_oddball.status = NOT_STARTED
-    continueRoutine = True
-    # update component parameters for each repeat
-    # create starting attributes for key_instruct_oddball
-    key_instruct_oddball.keys = []
-    key_instruct_oddball.rt = []
-    _key_instruct_oddball_allKeys = []
-    read_instruct_oddball.setSound('resource/instruct_oddball.wav', hamming=True)
-    read_instruct_oddball.setVolume(1.0, log=False)
-    read_instruct_oddball.seek(0)
-    # store start times for instruct_oddball
-    instruct_oddball.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-    instruct_oddball.tStart = globalClock.getTime(format='float')
-    instruct_oddball.status = STARTED
-    instruct_oddball.maxDuration = None
-    # keep track of which components have finished
-    instruct_oddballComponents = instruct_oddball.components
-    for thisComponent in instruct_oddball.components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "instruct_oddball" ---
-    instruct_oddball.forceEnded = routineForceEnded = not continueRoutine
-    while continueRoutine:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *text_instruct_oddball* updates
-        
-        # if text_instruct_oddball is starting this frame...
-        if text_instruct_oddball.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_instruct_oddball.frameNStart = frameN  # exact frame index
-            text_instruct_oddball.tStart = t  # local t and not account for scr refresh
-            text_instruct_oddball.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_instruct_oddball, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            text_instruct_oddball.status = STARTED
-            text_instruct_oddball.setAutoDraw(True)
-        
-        # if text_instruct_oddball is active this frame...
-        if text_instruct_oddball.status == STARTED:
-            # update params
-            pass
-        
-        # *key_instruct_oddball* updates
-        waitOnFlip = False
-        
-        # if key_instruct_oddball is starting this frame...
-        if key_instruct_oddball.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
-            # keep track of start time/frame for later
-            key_instruct_oddball.frameNStart = frameN  # exact frame index
-            key_instruct_oddball.tStart = t  # local t and not account for scr refresh
-            key_instruct_oddball.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(key_instruct_oddball, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            key_instruct_oddball.status = STARTED
-            # keyboard checking is just starting
-            waitOnFlip = True
-            win.callOnFlip(key_instruct_oddball.clock.reset)  # t=0 on next screen flip
-            win.callOnFlip(key_instruct_oddball.clearEvents, eventType='keyboard')  # clear events on next screen flip
-        if key_instruct_oddball.status == STARTED and not waitOnFlip:
-            theseKeys = key_instruct_oddball.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
-            _key_instruct_oddball_allKeys.extend(theseKeys)
-            if len(_key_instruct_oddball_allKeys):
-                key_instruct_oddball.keys = _key_instruct_oddball_allKeys[-1].name  # just the last key pressed
-                key_instruct_oddball.rt = _key_instruct_oddball_allKeys[-1].rt
-                key_instruct_oddball.duration = _key_instruct_oddball_allKeys[-1].duration
-                # a response ends the routine
-                continueRoutine = False
-        
-        # *read_instruct_oddball* updates
-        
-        # if read_instruct_oddball is starting this frame...
-        if read_instruct_oddball.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
-            # keep track of start time/frame for later
-            read_instruct_oddball.frameNStart = frameN  # exact frame index
-            read_instruct_oddball.tStart = t  # local t and not account for scr refresh
-            read_instruct_oddball.tStartRefresh = tThisFlipGlobal  # on global time
-            # update status
-            read_instruct_oddball.status = STARTED
-            read_instruct_oddball.play(when=win)  # sync with win flip
-        
-        # if read_instruct_oddball is stopping this frame...
-        if read_instruct_oddball.status == STARTED:
-            if bool(False) or read_instruct_oddball.isFinished:
-                # keep track of stop time/frame for later
-                read_instruct_oddball.tStop = t  # not accounting for scr refresh
-                read_instruct_oddball.tStopRefresh = tThisFlipGlobal  # on global time
-                read_instruct_oddball.frameNStop = frameN  # exact frame index
-                # update status
-                read_instruct_oddball.status = FINISHED
-                read_instruct_oddball.stop()
-        
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
-        # pause experiment here if requested
-        if thisExp.status == PAUSED:
-            pauseExperiment(
-                thisExp=thisExp, 
-                win=win, 
-                timers=[routineTimer], 
-                playbackComponents=[read_instruct_oddball]
-            )
-            # skip the frame we paused on
-            continue
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            instruct_oddball.forceEnded = routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in instruct_oddball.components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "instruct_oddball" ---
-    for thisComponent in instruct_oddball.components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # store stop times for instruct_oddball
-    instruct_oddball.tStop = globalClock.getTime(format='float')
-    instruct_oddball.tStopRefresh = tThisFlipGlobal
-    read_instruct_oddball.pause()  # ensure sound has stopped at end of Routine
-    thisExp.nextEntry()
-    # the Routine "instruct_oddball" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
-    # --- Prepare to start Routine "tone_oddball" ---
-    # create an object to store info about Routine tone_oddball
-    tone_oddball = data.Routine(
-        name='tone_oddball',
-        components=[text_fixation_oddball, sound_oddball],
-    )
-    tone_oddball.status = NOT_STARTED
-    continueRoutine = True
-    # update component parameters for each repeat
-    sound_oddball.setSound(oddball_frequency, secs=0.2, hamming=True)
-    sound_oddball.setVolume(1.0, log=False)
-    sound_oddball.seek(0)
-    # store start times for tone_oddball
-    tone_oddball.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-    tone_oddball.tStart = globalClock.getTime(format='float')
-    tone_oddball.status = STARTED
-    tone_oddball.maxDuration = None
-    # keep track of which components have finished
-    tone_oddballComponents = tone_oddball.components
-    for thisComponent in tone_oddball.components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "tone_oddball" ---
-    tone_oddball.forceEnded = routineForceEnded = not continueRoutine
-    while continueRoutine and routineTimer.getTime() < 1.0:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *text_fixation_oddball* updates
-        
-        # if text_fixation_oddball is starting this frame...
-        if text_fixation_oddball.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_fixation_oddball.frameNStart = frameN  # exact frame index
-            text_fixation_oddball.tStart = t  # local t and not account for scr refresh
-            text_fixation_oddball.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_fixation_oddball, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            text_fixation_oddball.status = STARTED
-            text_fixation_oddball.setAutoDraw(True)
-        
-        # if text_fixation_oddball is active this frame...
-        if text_fixation_oddball.status == STARTED:
-            # update params
-            pass
-        
-        # if text_fixation_oddball is stopping this frame...
-        if text_fixation_oddball.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > text_fixation_oddball.tStartRefresh + 1.0-frameTolerance:
-                # keep track of stop time/frame for later
-                text_fixation_oddball.tStop = t  # not accounting for scr refresh
-                text_fixation_oddball.tStopRefresh = tThisFlipGlobal  # on global time
-                text_fixation_oddball.frameNStop = frameN  # exact frame index
-                # update status
-                text_fixation_oddball.status = FINISHED
-                text_fixation_oddball.setAutoDraw(False)
-        
-        # *sound_oddball* updates
-        
-        # if sound_oddball is starting this frame...
-        if sound_oddball.status == NOT_STARTED and t >= 0.5-frameTolerance:
-            # keep track of start time/frame for later
-            sound_oddball.frameNStart = frameN  # exact frame index
-            sound_oddball.tStart = t  # local t and not account for scr refresh
-            sound_oddball.tStartRefresh = tThisFlipGlobal  # on global time
-            # update status
-            sound_oddball.status = STARTED
-            sound_oddball.play()  # start the sound (it finishes automatically)
-        
-        # if sound_oddball is stopping this frame...
-        if sound_oddball.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > sound_oddball.tStartRefresh + 0.2-frameTolerance or sound_oddball.isFinished:
-                # keep track of stop time/frame for later
-                sound_oddball.tStop = t  # not accounting for scr refresh
-                sound_oddball.tStopRefresh = tThisFlipGlobal  # on global time
-                sound_oddball.frameNStop = frameN  # exact frame index
-                # update status
-                sound_oddball.status = FINISHED
-                sound_oddball.stop()
-        
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
-        # pause experiment here if requested
-        if thisExp.status == PAUSED:
-            pauseExperiment(
-                thisExp=thisExp, 
-                win=win, 
-                timers=[routineTimer], 
-                playbackComponents=[sound_oddball]
-            )
-            # skip the frame we paused on
-            continue
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            tone_oddball.forceEnded = routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in tone_oddball.components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "tone_oddball" ---
-    for thisComponent in tone_oddball.components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # store stop times for tone_oddball
-    tone_oddball.tStop = globalClock.getTime(format='float')
-    tone_oddball.tStopRefresh = tThisFlipGlobal
-    # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
-    if tone_oddball.maxDurationReached:
-        routineTimer.addTime(-tone_oddball.maxDuration)
-    elif tone_oddball.forceEnded:
-        routineTimer.reset()
-    else:
-        routineTimer.addTime(-1.000000)
-    thisExp.nextEntry()
-    
-    # --- Prepare to start Routine "instruct_regular" ---
-    # create an object to store info about Routine instruct_regular
-    instruct_regular = data.Routine(
-        name='instruct_regular',
-        components=[text_instruct_regular, key_instruct_regular, read_instruct_regular],
-    )
-    instruct_regular.status = NOT_STARTED
-    continueRoutine = True
-    # update component parameters for each repeat
-    # create starting attributes for key_instruct_regular
-    key_instruct_regular.keys = []
-    key_instruct_regular.rt = []
-    _key_instruct_regular_allKeys = []
-    read_instruct_regular.setSound('resource/instruct_regular.wav', hamming=True)
-    read_instruct_regular.setVolume(1.0, log=False)
-    read_instruct_regular.seek(0)
-    # store start times for instruct_regular
-    instruct_regular.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-    instruct_regular.tStart = globalClock.getTime(format='float')
-    instruct_regular.status = STARTED
-    instruct_regular.maxDuration = None
-    # keep track of which components have finished
-    instruct_regularComponents = instruct_regular.components
-    for thisComponent in instruct_regular.components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "instruct_regular" ---
-    instruct_regular.forceEnded = routineForceEnded = not continueRoutine
-    while continueRoutine:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *text_instruct_regular* updates
-        
-        # if text_instruct_regular is starting this frame...
-        if text_instruct_regular.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_instruct_regular.frameNStart = frameN  # exact frame index
-            text_instruct_regular.tStart = t  # local t and not account for scr refresh
-            text_instruct_regular.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_instruct_regular, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            text_instruct_regular.status = STARTED
-            text_instruct_regular.setAutoDraw(True)
-        
-        # if text_instruct_regular is active this frame...
-        if text_instruct_regular.status == STARTED:
-            # update params
-            pass
-        
-        # *key_instruct_regular* updates
-        waitOnFlip = False
-        
-        # if key_instruct_regular is starting this frame...
-        if key_instruct_regular.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
-            # keep track of start time/frame for later
-            key_instruct_regular.frameNStart = frameN  # exact frame index
-            key_instruct_regular.tStart = t  # local t and not account for scr refresh
-            key_instruct_regular.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(key_instruct_regular, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            key_instruct_regular.status = STARTED
-            # keyboard checking is just starting
-            waitOnFlip = True
-            win.callOnFlip(key_instruct_regular.clock.reset)  # t=0 on next screen flip
-            win.callOnFlip(key_instruct_regular.clearEvents, eventType='keyboard')  # clear events on next screen flip
-        if key_instruct_regular.status == STARTED and not waitOnFlip:
-            theseKeys = key_instruct_regular.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
-            _key_instruct_regular_allKeys.extend(theseKeys)
-            if len(_key_instruct_regular_allKeys):
-                key_instruct_regular.keys = _key_instruct_regular_allKeys[-1].name  # just the last key pressed
-                key_instruct_regular.rt = _key_instruct_regular_allKeys[-1].rt
-                key_instruct_regular.duration = _key_instruct_regular_allKeys[-1].duration
-                # a response ends the routine
-                continueRoutine = False
-        
-        # *read_instruct_regular* updates
-        
-        # if read_instruct_regular is starting this frame...
-        if read_instruct_regular.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
-            # keep track of start time/frame for later
-            read_instruct_regular.frameNStart = frameN  # exact frame index
-            read_instruct_regular.tStart = t  # local t and not account for scr refresh
-            read_instruct_regular.tStartRefresh = tThisFlipGlobal  # on global time
-            # update status
-            read_instruct_regular.status = STARTED
-            read_instruct_regular.play(when=win)  # sync with win flip
-        
-        # if read_instruct_regular is stopping this frame...
-        if read_instruct_regular.status == STARTED:
-            if bool(False) or read_instruct_regular.isFinished:
-                # keep track of stop time/frame for later
-                read_instruct_regular.tStop = t  # not accounting for scr refresh
-                read_instruct_regular.tStopRefresh = tThisFlipGlobal  # on global time
-                read_instruct_regular.frameNStop = frameN  # exact frame index
-                # update status
-                read_instruct_regular.status = FINISHED
-                read_instruct_regular.stop()
-        
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
-        # pause experiment here if requested
-        if thisExp.status == PAUSED:
-            pauseExperiment(
-                thisExp=thisExp, 
-                win=win, 
-                timers=[routineTimer], 
-                playbackComponents=[read_instruct_regular]
-            )
-            # skip the frame we paused on
-            continue
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            instruct_regular.forceEnded = routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in instruct_regular.components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "instruct_regular" ---
-    for thisComponent in instruct_regular.components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # store stop times for instruct_regular
-    instruct_regular.tStop = globalClock.getTime(format='float')
-    instruct_regular.tStopRefresh = tThisFlipGlobal
-    read_instruct_regular.pause()  # ensure sound has stopped at end of Routine
-    thisExp.nextEntry()
-    # the Routine "instruct_regular" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
-    # --- Prepare to start Routine "tone_regular" ---
-    # create an object to store info about Routine tone_regular
-    tone_regular = data.Routine(
-        name='tone_regular',
-        components=[text_fixation_regular, sound_regular],
-    )
-    tone_regular.status = NOT_STARTED
-    continueRoutine = True
-    # update component parameters for each repeat
-    sound_regular.setSound(regular_frequency, secs=0.2, hamming=True)
-    sound_regular.setVolume(1.0, log=False)
-    sound_regular.seek(0)
-    # store start times for tone_regular
-    tone_regular.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-    tone_regular.tStart = globalClock.getTime(format='float')
-    tone_regular.status = STARTED
-    tone_regular.maxDuration = None
-    # keep track of which components have finished
-    tone_regularComponents = tone_regular.components
-    for thisComponent in tone_regular.components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "tone_regular" ---
-    tone_regular.forceEnded = routineForceEnded = not continueRoutine
-    while continueRoutine and routineTimer.getTime() < 1.0:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *text_fixation_regular* updates
-        
-        # if text_fixation_regular is starting this frame...
-        if text_fixation_regular.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_fixation_regular.frameNStart = frameN  # exact frame index
-            text_fixation_regular.tStart = t  # local t and not account for scr refresh
-            text_fixation_regular.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_fixation_regular, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            text_fixation_regular.status = STARTED
-            text_fixation_regular.setAutoDraw(True)
-        
-        # if text_fixation_regular is active this frame...
-        if text_fixation_regular.status == STARTED:
-            # update params
-            pass
-        
-        # if text_fixation_regular is stopping this frame...
-        if text_fixation_regular.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > text_fixation_regular.tStartRefresh + 1.0-frameTolerance:
-                # keep track of stop time/frame for later
-                text_fixation_regular.tStop = t  # not accounting for scr refresh
-                text_fixation_regular.tStopRefresh = tThisFlipGlobal  # on global time
-                text_fixation_regular.frameNStop = frameN  # exact frame index
-                # update status
-                text_fixation_regular.status = FINISHED
-                text_fixation_regular.setAutoDraw(False)
-        
-        # *sound_regular* updates
-        
-        # if sound_regular is starting this frame...
-        if sound_regular.status == NOT_STARTED and t >= 0.5-frameTolerance:
-            # keep track of start time/frame for later
-            sound_regular.frameNStart = frameN  # exact frame index
-            sound_regular.tStart = t  # local t and not account for scr refresh
-            sound_regular.tStartRefresh = tThisFlipGlobal  # on global time
-            # update status
-            sound_regular.status = STARTED
-            sound_regular.play()  # start the sound (it finishes automatically)
-        
-        # if sound_regular is stopping this frame...
-        if sound_regular.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > sound_regular.tStartRefresh + 0.2-frameTolerance or sound_regular.isFinished:
-                # keep track of stop time/frame for later
-                sound_regular.tStop = t  # not accounting for scr refresh
-                sound_regular.tStopRefresh = tThisFlipGlobal  # on global time
-                sound_regular.frameNStop = frameN  # exact frame index
-                # update status
-                sound_regular.status = FINISHED
-                sound_regular.stop()
-        
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
-        # pause experiment here if requested
-        if thisExp.status == PAUSED:
-            pauseExperiment(
-                thisExp=thisExp, 
-                win=win, 
-                timers=[routineTimer], 
-                playbackComponents=[sound_regular]
-            )
-            # skip the frame we paused on
-            continue
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            tone_regular.forceEnded = routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in tone_regular.components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "tone_regular" ---
-    for thisComponent in tone_regular.components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # store stop times for tone_regular
-    tone_regular.tStop = globalClock.getTime(format='float')
-    tone_regular.tStopRefresh = tThisFlipGlobal
-    # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
-    if tone_regular.maxDurationReached:
-        routineTimer.addTime(-tone_regular.maxDuration)
-    elif tone_regular.forceEnded:
-        routineTimer.reset()
-    else:
-        routineTimer.addTime(-1.000000)
-    thisExp.nextEntry()
-    
     # set up handler to look after randomisation of conditions etc
     practice_loop = data.TrialHandler2(
         name='practice_loop',
@@ -1745,6 +1151,608 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisPractice_loop != None:
             for paramName in thisPractice_loop:
                 globals()[paramName] = thisPractice_loop[paramName]
+        
+        # --- Prepare to start Routine "instruct_oddball" ---
+        # create an object to store info about Routine instruct_oddball
+        instruct_oddball = data.Routine(
+            name='instruct_oddball',
+            components=[text_instruct_oddball, key_instruct_oddball, read_instruct_oddball],
+        )
+        instruct_oddball.status = NOT_STARTED
+        continueRoutine = True
+        # update component parameters for each repeat
+        # create starting attributes for key_instruct_oddball
+        key_instruct_oddball.keys = []
+        key_instruct_oddball.rt = []
+        _key_instruct_oddball_allKeys = []
+        read_instruct_oddball.setSound('resource/instruct_oddball.wav', hamming=True)
+        read_instruct_oddball.setVolume(1.0, log=False)
+        read_instruct_oddball.seek(0)
+        # store start times for instruct_oddball
+        instruct_oddball.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+        instruct_oddball.tStart = globalClock.getTime(format='float')
+        instruct_oddball.status = STARTED
+        instruct_oddball.maxDuration = None
+        # keep track of which components have finished
+        instruct_oddballComponents = instruct_oddball.components
+        for thisComponent in instruct_oddball.components:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
+        
+        # --- Run Routine "instruct_oddball" ---
+        # if trial has changed, end Routine now
+        if isinstance(practice_loop, data.TrialHandler2) and thisPractice_loop.thisN != practice_loop.thisTrial.thisN:
+            continueRoutine = False
+        instruct_oddball.forceEnded = routineForceEnded = not continueRoutine
+        while continueRoutine:
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *text_instruct_oddball* updates
+            
+            # if text_instruct_oddball is starting this frame...
+            if text_instruct_oddball.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                text_instruct_oddball.frameNStart = frameN  # exact frame index
+                text_instruct_oddball.tStart = t  # local t and not account for scr refresh
+                text_instruct_oddball.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(text_instruct_oddball, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                text_instruct_oddball.status = STARTED
+                text_instruct_oddball.setAutoDraw(True)
+            
+            # if text_instruct_oddball is active this frame...
+            if text_instruct_oddball.status == STARTED:
+                # update params
+                pass
+            
+            # *key_instruct_oddball* updates
+            waitOnFlip = False
+            
+            # if key_instruct_oddball is starting this frame...
+            if key_instruct_oddball.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
+                # keep track of start time/frame for later
+                key_instruct_oddball.frameNStart = frameN  # exact frame index
+                key_instruct_oddball.tStart = t  # local t and not account for scr refresh
+                key_instruct_oddball.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(key_instruct_oddball, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                key_instruct_oddball.status = STARTED
+                # keyboard checking is just starting
+                waitOnFlip = True
+                win.callOnFlip(key_instruct_oddball.clock.reset)  # t=0 on next screen flip
+                win.callOnFlip(key_instruct_oddball.clearEvents, eventType='keyboard')  # clear events on next screen flip
+            if key_instruct_oddball.status == STARTED and not waitOnFlip:
+                theseKeys = key_instruct_oddball.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
+                _key_instruct_oddball_allKeys.extend(theseKeys)
+                if len(_key_instruct_oddball_allKeys):
+                    key_instruct_oddball.keys = _key_instruct_oddball_allKeys[-1].name  # just the last key pressed
+                    key_instruct_oddball.rt = _key_instruct_oddball_allKeys[-1].rt
+                    key_instruct_oddball.duration = _key_instruct_oddball_allKeys[-1].duration
+                    # a response ends the routine
+                    continueRoutine = False
+            
+            # *read_instruct_oddball* updates
+            
+            # if read_instruct_oddball is starting this frame...
+            if read_instruct_oddball.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+                # keep track of start time/frame for later
+                read_instruct_oddball.frameNStart = frameN  # exact frame index
+                read_instruct_oddball.tStart = t  # local t and not account for scr refresh
+                read_instruct_oddball.tStartRefresh = tThisFlipGlobal  # on global time
+                # update status
+                read_instruct_oddball.status = STARTED
+                read_instruct_oddball.play(when=win)  # sync with win flip
+            
+            # if read_instruct_oddball is stopping this frame...
+            if read_instruct_oddball.status == STARTED:
+                if bool(False) or read_instruct_oddball.isFinished:
+                    # keep track of stop time/frame for later
+                    read_instruct_oddball.tStop = t  # not accounting for scr refresh
+                    read_instruct_oddball.tStopRefresh = tThisFlipGlobal  # on global time
+                    read_instruct_oddball.frameNStop = frameN  # exact frame index
+                    # update status
+                    read_instruct_oddball.status = FINISHED
+                    read_instruct_oddball.stop()
+            
+            # check for quit (typically the Esc key)
+            if defaultKeyboard.getKeys(keyList=["escape"]):
+                thisExp.status = FINISHED
+            if thisExp.status == FINISHED or endExpNow:
+                endExperiment(thisExp, win=win)
+                return
+            # pause experiment here if requested
+            if thisExp.status == PAUSED:
+                pauseExperiment(
+                    thisExp=thisExp, 
+                    win=win, 
+                    timers=[routineTimer], 
+                    playbackComponents=[read_instruct_oddball]
+                )
+                # skip the frame we paused on
+                continue
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                instruct_oddball.forceEnded = routineForceEnded = True
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in instruct_oddball.components:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # --- Ending Routine "instruct_oddball" ---
+        for thisComponent in instruct_oddball.components:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # store stop times for instruct_oddball
+        instruct_oddball.tStop = globalClock.getTime(format='float')
+        instruct_oddball.tStopRefresh = tThisFlipGlobal
+        read_instruct_oddball.pause()  # ensure sound has stopped at end of Routine
+        # the Routine "instruct_oddball" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        
+        # --- Prepare to start Routine "tone_oddball" ---
+        # create an object to store info about Routine tone_oddball
+        tone_oddball = data.Routine(
+            name='tone_oddball',
+            components=[text_fixation_oddball, sound_oddball],
+        )
+        tone_oddball.status = NOT_STARTED
+        continueRoutine = True
+        # update component parameters for each repeat
+        sound_oddball.setSound(oddball_frequency, secs=0.2, hamming=True)
+        sound_oddball.setVolume(1.0, log=False)
+        sound_oddball.seek(0)
+        # store start times for tone_oddball
+        tone_oddball.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+        tone_oddball.tStart = globalClock.getTime(format='float')
+        tone_oddball.status = STARTED
+        tone_oddball.maxDuration = None
+        # keep track of which components have finished
+        tone_oddballComponents = tone_oddball.components
+        for thisComponent in tone_oddball.components:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
+        
+        # --- Run Routine "tone_oddball" ---
+        # if trial has changed, end Routine now
+        if isinstance(practice_loop, data.TrialHandler2) and thisPractice_loop.thisN != practice_loop.thisTrial.thisN:
+            continueRoutine = False
+        tone_oddball.forceEnded = routineForceEnded = not continueRoutine
+        while continueRoutine and routineTimer.getTime() < 1.0:
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *text_fixation_oddball* updates
+            
+            # if text_fixation_oddball is starting this frame...
+            if text_fixation_oddball.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                text_fixation_oddball.frameNStart = frameN  # exact frame index
+                text_fixation_oddball.tStart = t  # local t and not account for scr refresh
+                text_fixation_oddball.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(text_fixation_oddball, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                text_fixation_oddball.status = STARTED
+                text_fixation_oddball.setAutoDraw(True)
+            
+            # if text_fixation_oddball is active this frame...
+            if text_fixation_oddball.status == STARTED:
+                # update params
+                pass
+            
+            # if text_fixation_oddball is stopping this frame...
+            if text_fixation_oddball.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > text_fixation_oddball.tStartRefresh + 1.0-frameTolerance:
+                    # keep track of stop time/frame for later
+                    text_fixation_oddball.tStop = t  # not accounting for scr refresh
+                    text_fixation_oddball.tStopRefresh = tThisFlipGlobal  # on global time
+                    text_fixation_oddball.frameNStop = frameN  # exact frame index
+                    # update status
+                    text_fixation_oddball.status = FINISHED
+                    text_fixation_oddball.setAutoDraw(False)
+            
+            # *sound_oddball* updates
+            
+            # if sound_oddball is starting this frame...
+            if sound_oddball.status == NOT_STARTED and t >= 0.5-frameTolerance:
+                # keep track of start time/frame for later
+                sound_oddball.frameNStart = frameN  # exact frame index
+                sound_oddball.tStart = t  # local t and not account for scr refresh
+                sound_oddball.tStartRefresh = tThisFlipGlobal  # on global time
+                # update status
+                sound_oddball.status = STARTED
+                sound_oddball.play()  # start the sound (it finishes automatically)
+            
+            # if sound_oddball is stopping this frame...
+            if sound_oddball.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > sound_oddball.tStartRefresh + 0.2-frameTolerance or sound_oddball.isFinished:
+                    # keep track of stop time/frame for later
+                    sound_oddball.tStop = t  # not accounting for scr refresh
+                    sound_oddball.tStopRefresh = tThisFlipGlobal  # on global time
+                    sound_oddball.frameNStop = frameN  # exact frame index
+                    # update status
+                    sound_oddball.status = FINISHED
+                    sound_oddball.stop()
+            
+            # check for quit (typically the Esc key)
+            if defaultKeyboard.getKeys(keyList=["escape"]):
+                thisExp.status = FINISHED
+            if thisExp.status == FINISHED or endExpNow:
+                endExperiment(thisExp, win=win)
+                return
+            # pause experiment here if requested
+            if thisExp.status == PAUSED:
+                pauseExperiment(
+                    thisExp=thisExp, 
+                    win=win, 
+                    timers=[routineTimer], 
+                    playbackComponents=[sound_oddball]
+                )
+                # skip the frame we paused on
+                continue
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                tone_oddball.forceEnded = routineForceEnded = True
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in tone_oddball.components:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # --- Ending Routine "tone_oddball" ---
+        for thisComponent in tone_oddball.components:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # store stop times for tone_oddball
+        tone_oddball.tStop = globalClock.getTime(format='float')
+        tone_oddball.tStopRefresh = tThisFlipGlobal
+        # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
+        if tone_oddball.maxDurationReached:
+            routineTimer.addTime(-tone_oddball.maxDuration)
+        elif tone_oddball.forceEnded:
+            routineTimer.reset()
+        else:
+            routineTimer.addTime(-1.000000)
+        
+        # --- Prepare to start Routine "instruct_regular" ---
+        # create an object to store info about Routine instruct_regular
+        instruct_regular = data.Routine(
+            name='instruct_regular',
+            components=[text_instruct_regular, key_instruct_regular, read_instruct_regular],
+        )
+        instruct_regular.status = NOT_STARTED
+        continueRoutine = True
+        # update component parameters for each repeat
+        # create starting attributes for key_instruct_regular
+        key_instruct_regular.keys = []
+        key_instruct_regular.rt = []
+        _key_instruct_regular_allKeys = []
+        read_instruct_regular.setSound('resource/instruct_regular.wav', hamming=True)
+        read_instruct_regular.setVolume(1.0, log=False)
+        read_instruct_regular.seek(0)
+        # store start times for instruct_regular
+        instruct_regular.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+        instruct_regular.tStart = globalClock.getTime(format='float')
+        instruct_regular.status = STARTED
+        instruct_regular.maxDuration = None
+        # keep track of which components have finished
+        instruct_regularComponents = instruct_regular.components
+        for thisComponent in instruct_regular.components:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
+        
+        # --- Run Routine "instruct_regular" ---
+        # if trial has changed, end Routine now
+        if isinstance(practice_loop, data.TrialHandler2) and thisPractice_loop.thisN != practice_loop.thisTrial.thisN:
+            continueRoutine = False
+        instruct_regular.forceEnded = routineForceEnded = not continueRoutine
+        while continueRoutine:
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *text_instruct_regular* updates
+            
+            # if text_instruct_regular is starting this frame...
+            if text_instruct_regular.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                text_instruct_regular.frameNStart = frameN  # exact frame index
+                text_instruct_regular.tStart = t  # local t and not account for scr refresh
+                text_instruct_regular.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(text_instruct_regular, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                text_instruct_regular.status = STARTED
+                text_instruct_regular.setAutoDraw(True)
+            
+            # if text_instruct_regular is active this frame...
+            if text_instruct_regular.status == STARTED:
+                # update params
+                pass
+            
+            # *key_instruct_regular* updates
+            waitOnFlip = False
+            
+            # if key_instruct_regular is starting this frame...
+            if key_instruct_regular.status == NOT_STARTED and tThisFlip >= 0.2-frameTolerance:
+                # keep track of start time/frame for later
+                key_instruct_regular.frameNStart = frameN  # exact frame index
+                key_instruct_regular.tStart = t  # local t and not account for scr refresh
+                key_instruct_regular.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(key_instruct_regular, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                key_instruct_regular.status = STARTED
+                # keyboard checking is just starting
+                waitOnFlip = True
+                win.callOnFlip(key_instruct_regular.clock.reset)  # t=0 on next screen flip
+                win.callOnFlip(key_instruct_regular.clearEvents, eventType='keyboard')  # clear events on next screen flip
+            if key_instruct_regular.status == STARTED and not waitOnFlip:
+                theseKeys = key_instruct_regular.getKeys(keyList=['3', '4', '5', '6'], ignoreKeys=["escape"], waitRelease=True)
+                _key_instruct_regular_allKeys.extend(theseKeys)
+                if len(_key_instruct_regular_allKeys):
+                    key_instruct_regular.keys = _key_instruct_regular_allKeys[-1].name  # just the last key pressed
+                    key_instruct_regular.rt = _key_instruct_regular_allKeys[-1].rt
+                    key_instruct_regular.duration = _key_instruct_regular_allKeys[-1].duration
+                    # a response ends the routine
+                    continueRoutine = False
+            
+            # *read_instruct_regular* updates
+            
+            # if read_instruct_regular is starting this frame...
+            if read_instruct_regular.status == NOT_STARTED and tThisFlip >= 0.8-frameTolerance:
+                # keep track of start time/frame for later
+                read_instruct_regular.frameNStart = frameN  # exact frame index
+                read_instruct_regular.tStart = t  # local t and not account for scr refresh
+                read_instruct_regular.tStartRefresh = tThisFlipGlobal  # on global time
+                # update status
+                read_instruct_regular.status = STARTED
+                read_instruct_regular.play(when=win)  # sync with win flip
+            
+            # if read_instruct_regular is stopping this frame...
+            if read_instruct_regular.status == STARTED:
+                if bool(False) or read_instruct_regular.isFinished:
+                    # keep track of stop time/frame for later
+                    read_instruct_regular.tStop = t  # not accounting for scr refresh
+                    read_instruct_regular.tStopRefresh = tThisFlipGlobal  # on global time
+                    read_instruct_regular.frameNStop = frameN  # exact frame index
+                    # update status
+                    read_instruct_regular.status = FINISHED
+                    read_instruct_regular.stop()
+            
+            # check for quit (typically the Esc key)
+            if defaultKeyboard.getKeys(keyList=["escape"]):
+                thisExp.status = FINISHED
+            if thisExp.status == FINISHED or endExpNow:
+                endExperiment(thisExp, win=win)
+                return
+            # pause experiment here if requested
+            if thisExp.status == PAUSED:
+                pauseExperiment(
+                    thisExp=thisExp, 
+                    win=win, 
+                    timers=[routineTimer], 
+                    playbackComponents=[read_instruct_regular]
+                )
+                # skip the frame we paused on
+                continue
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                instruct_regular.forceEnded = routineForceEnded = True
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in instruct_regular.components:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # --- Ending Routine "instruct_regular" ---
+        for thisComponent in instruct_regular.components:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # store stop times for instruct_regular
+        instruct_regular.tStop = globalClock.getTime(format='float')
+        instruct_regular.tStopRefresh = tThisFlipGlobal
+        read_instruct_regular.pause()  # ensure sound has stopped at end of Routine
+        # the Routine "instruct_regular" was not non-slip safe, so reset the non-slip timer
+        routineTimer.reset()
+        
+        # --- Prepare to start Routine "tone_regular" ---
+        # create an object to store info about Routine tone_regular
+        tone_regular = data.Routine(
+            name='tone_regular',
+            components=[text_fixation_regular, sound_regular],
+        )
+        tone_regular.status = NOT_STARTED
+        continueRoutine = True
+        # update component parameters for each repeat
+        sound_regular.setSound(regular_frequency, secs=0.2, hamming=True)
+        sound_regular.setVolume(1.0, log=False)
+        sound_regular.seek(0)
+        # store start times for tone_regular
+        tone_regular.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+        tone_regular.tStart = globalClock.getTime(format='float')
+        tone_regular.status = STARTED
+        tone_regular.maxDuration = None
+        # keep track of which components have finished
+        tone_regularComponents = tone_regular.components
+        for thisComponent in tone_regular.components:
+            thisComponent.tStart = None
+            thisComponent.tStop = None
+            thisComponent.tStartRefresh = None
+            thisComponent.tStopRefresh = None
+            if hasattr(thisComponent, 'status'):
+                thisComponent.status = NOT_STARTED
+        # reset timers
+        t = 0
+        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+        frameN = -1
+        
+        # --- Run Routine "tone_regular" ---
+        # if trial has changed, end Routine now
+        if isinstance(practice_loop, data.TrialHandler2) and thisPractice_loop.thisN != practice_loop.thisTrial.thisN:
+            continueRoutine = False
+        tone_regular.forceEnded = routineForceEnded = not continueRoutine
+        while continueRoutine and routineTimer.getTime() < 1.0:
+            # get current time
+            t = routineTimer.getTime()
+            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+            # update/draw components on each frame
+            
+            # *text_fixation_regular* updates
+            
+            # if text_fixation_regular is starting this frame...
+            if text_fixation_regular.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                text_fixation_regular.frameNStart = frameN  # exact frame index
+                text_fixation_regular.tStart = t  # local t and not account for scr refresh
+                text_fixation_regular.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(text_fixation_regular, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                text_fixation_regular.status = STARTED
+                text_fixation_regular.setAutoDraw(True)
+            
+            # if text_fixation_regular is active this frame...
+            if text_fixation_regular.status == STARTED:
+                # update params
+                pass
+            
+            # if text_fixation_regular is stopping this frame...
+            if text_fixation_regular.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > text_fixation_regular.tStartRefresh + 1.0-frameTolerance:
+                    # keep track of stop time/frame for later
+                    text_fixation_regular.tStop = t  # not accounting for scr refresh
+                    text_fixation_regular.tStopRefresh = tThisFlipGlobal  # on global time
+                    text_fixation_regular.frameNStop = frameN  # exact frame index
+                    # update status
+                    text_fixation_regular.status = FINISHED
+                    text_fixation_regular.setAutoDraw(False)
+            
+            # *sound_regular* updates
+            
+            # if sound_regular is starting this frame...
+            if sound_regular.status == NOT_STARTED and t >= 0.5-frameTolerance:
+                # keep track of start time/frame for later
+                sound_regular.frameNStart = frameN  # exact frame index
+                sound_regular.tStart = t  # local t and not account for scr refresh
+                sound_regular.tStartRefresh = tThisFlipGlobal  # on global time
+                # update status
+                sound_regular.status = STARTED
+                sound_regular.play()  # start the sound (it finishes automatically)
+            
+            # if sound_regular is stopping this frame...
+            if sound_regular.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > sound_regular.tStartRefresh + 0.2-frameTolerance or sound_regular.isFinished:
+                    # keep track of stop time/frame for later
+                    sound_regular.tStop = t  # not accounting for scr refresh
+                    sound_regular.tStopRefresh = tThisFlipGlobal  # on global time
+                    sound_regular.frameNStop = frameN  # exact frame index
+                    # update status
+                    sound_regular.status = FINISHED
+                    sound_regular.stop()
+            
+            # check for quit (typically the Esc key)
+            if defaultKeyboard.getKeys(keyList=["escape"]):
+                thisExp.status = FINISHED
+            if thisExp.status == FINISHED or endExpNow:
+                endExperiment(thisExp, win=win)
+                return
+            # pause experiment here if requested
+            if thisExp.status == PAUSED:
+                pauseExperiment(
+                    thisExp=thisExp, 
+                    win=win, 
+                    timers=[routineTimer], 
+                    playbackComponents=[sound_regular]
+                )
+                # skip the frame we paused on
+                continue
+            
+            # check if all components have finished
+            if not continueRoutine:  # a component has requested a forced-end of Routine
+                tone_regular.forceEnded = routineForceEnded = True
+                break
+            continueRoutine = False  # will revert to True if at least one component still running
+            for thisComponent in tone_regular.components:
+                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                    continueRoutine = True
+                    break  # at least one component has not yet finished
+            
+            # refresh the screen
+            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                win.flip()
+        
+        # --- Ending Routine "tone_regular" ---
+        for thisComponent in tone_regular.components:
+            if hasattr(thisComponent, "setAutoDraw"):
+                thisComponent.setAutoDraw(False)
+        # store stop times for tone_regular
+        tone_regular.tStop = globalClock.getTime(format='float')
+        tone_regular.tStopRefresh = tThisFlipGlobal
+        # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
+        if tone_regular.maxDurationReached:
+            routineTimer.addTime(-tone_regular.maxDuration)
+        elif tone_regular.forceEnded:
+            routineTimer.reset()
+        else:
+            routineTimer.addTime(-1.000000)
         
         # --- Prepare to start Routine "instruct_combined" ---
         # create an object to store info about Routine instruct_combined
